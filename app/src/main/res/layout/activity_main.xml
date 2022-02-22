@@ -2,17 +2,133 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewChoiceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="Choose a Workspace:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/buttonChangeActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Change Workspace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+<!--        app:layout_constraintBottom_toTopOf="@+id/imageViewPythonFace"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textViewChoiceLabel" -->
+
+    <TextView
+        android:id="@+id/textViewDescriptionOutput"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/buttonChangeActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupWorkspaceChoiceCol1"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonHubActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Home" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Player" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSecondActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login/Register" />
+
+        <RadioButton
+            android:id="@+id/radioButtonThirdActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupWorkspaceChoiceCol2"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/radioGroupWorkspaceChoiceCol1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/radioButtonFourthActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Faq/Contact Us" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFifthActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Setup" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSixthActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tools" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSeventhActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dictionary" />
+    </RadioGroup>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewPythonFace"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:srcCompat="@drawable/logo_background" />-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="205dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--Change size of image with layout_width/height.            -->
 </androidx.constraintlayout.widget.ConstraintLayout>
