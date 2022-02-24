@@ -14,6 +14,8 @@ public class PlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView, PlayerFragment.newInstance("",""), "fragment").commit();
+
         Log.d(TAG, "onCreate: Player"); //log successful launch
         setTitle("Player");
     }
