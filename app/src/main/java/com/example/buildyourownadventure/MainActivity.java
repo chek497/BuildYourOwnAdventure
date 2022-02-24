@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.d(TAG, "onCreate: Home"); //log successful launch
         setTitle("Home");
+
     }
 
     RadioGroup.OnCheckedChangeListener col1Listener = new RadioGroup.OnCheckedChangeListener() {

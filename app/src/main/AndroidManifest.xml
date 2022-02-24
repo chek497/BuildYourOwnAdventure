@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuildYourOwnAdventure">
         <activity android:name=".ToolsActivity"></activity>
-        <activity android:name=".SetupActivity" />
+        <activity android:name=".SetupActivity"/>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
