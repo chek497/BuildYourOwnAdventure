@@ -1,35 +1,47 @@
 package com.example.buildyourownadventure;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link LoginFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
 public class LoginFragment extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     public LoginFragment() {
         // Required empty public constructor
     }
-    public static final String USER_LIST_KEY = "USER_LIST_KEY";
-    public static final String LOGIN_KEY = "LOGIN_KEY";
 
-    public ArrayList<User> users = new ArrayList<>();
-
-    public static LoginFragment newInstance(ArrayList<User> users) {
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment LoginFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
-        args.putSerializable(LOGIN_KEY, users);
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -38,77 +50,15 @@ public class LoginFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            users = (ArrayList<User>) getArguments().getSerializable(LOGIN_KEY);
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
-    EditText emailValue;
-    EditText passwordValue;
-    Button loginButton;
-    TextView signUpTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-
-        emailValue = view.findViewById(R.id.emailValue);
-        passwordValue = view.findViewById(R.id.passwordValue);
-        loginButton = view.findViewById(R.id.loginButton);
-        signUpTextView = view.findViewById(R.id.signUpTextView);
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = emailValue.getText().toString();
-                String password = passwordValue.getText().toString();
-
-                Log.d("TEST", "users" + users.toString());
-                Log.d("TEST", "user" + users.get(0).toString());
-                Log.d("TEST", "Fullname: " + users.get(0).getFullName());
-                Log.d("TEST", "Email: " + users.get(0).getEmail());
-                Log.d("TEST", "Password: " + users.get(0).getPassword());
-
-                for (int i = 0; i < users.size(); i++) {
-                    if (users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
-                        loginListener.successfulLogin(users.get(i));
-                    } else {
-                        if (i == users.size()-1) {
-                            loginListener.unsuccessfulLogin();
-                        }
-                    }
-                }
-            }
-        });
-
-        signUpTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startRegister(users);
-            }
-        });
-
-        return view;
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
-
-    ILoginListener loginListener;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        if (context instanceof ILoginListener) {
-            loginListener = (ILoginListener) context;
-        } else {
-            throw new RuntimeException(context.toString() + "must implement ILoginListener");
-        }
-    }
-
-    public interface ILoginListener{
-        void successfulLogin(User user);
-        void unsuccessfulLogin();
-        void startRegister(ArrayList<User> users);
-    }
-
 }

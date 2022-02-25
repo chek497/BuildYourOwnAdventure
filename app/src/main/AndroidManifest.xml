@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuildYourOwnAdventure">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name=".ToolsActivity"></activity>
+        <activity android:name=".SetupActivity"/>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".DictionaryActivity" />
+        <activity android:name=".FaqActivity" />
+        <activity android:name=".PlayerActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

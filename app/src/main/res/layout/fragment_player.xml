@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F51B5"
+    tools:context=".PlayerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageViewAbilities"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextTextCharacterDescription"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="20dp"
+        android:src="@android:drawable/ic_lock_idle_alarm" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewCharacterName"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="10dp"
+        android:text="Low Health" />
+
+    <TextView
+        android:id="@+id/textViewCharacterName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewPicture"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="20dp"
+        android:text="  Yorick"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageViewDisabilities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Guide"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+
+        android:layout_marginTop="110dp"
+        android:layout_toRightOf="@+id/imageViewPicture"
+        android:src="@android:drawable/ic_menu_compass" />
+
+    <ImageView
+        android:id="@+id/imageViewPicture"
+        android:layout_width="149dp"
+        android:layout_height="146dp"
+        android:layout_below="@+id/Guide"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="125dp"
+
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/yoricksquare" />
+
+    <ImageButton
+        android:id="@+id/imageButtonNotes"
+        android:layout_width="70dp"
+        android:layout_height="64dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/page" />
+
+    <ImageButton
+        android:id="@+id/imageButtonEdit"
+        android:layout_width="70dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginLeft="325dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/quill" />
+
+    <TextView
+        android:id="@+id/Guide"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pullDown"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/Guide"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="150dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/selectCreatePlayerPulldown"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="Player" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/editTextTextCharacterDescription"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textViewStatus"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="The last survivor of a long-forgotten religious order, Yorick is both blessed and cursed with power over the dead. Trapped on the Shadow Isles, his only companions are the rotting corpses and shrieking spirits that he gathers to him. Yorick’s monstrous actions belie his noble purpose: to free his home from the curse of the Ruination." />
+
+</RelativeLayout>
