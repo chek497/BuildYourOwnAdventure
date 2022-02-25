@@ -17,4 +17,6 @@
     <string name="submit">Submit Issue</string>
     <string name="description">Description of Issue</string>
     <string name="faq">FAQ</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="on_screen_keyboard">On Screen Keyboard</string>
 </resources>
