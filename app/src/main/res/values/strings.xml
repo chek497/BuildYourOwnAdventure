@@ -2,24 +2,4 @@
     <string name="app_name">BuildYourOwnAdventure</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="game_setup">Game Setup</string>
-    <string name="map_choice">Choose Your Map</string>
-    <string name="tavern">Tavern</string>
-    <string name="dungeon">Dungeon</string>
-    <string name="field">Open Field</string>
-    <string name="create_game">Create Game</string>
-    <string name="dragon_fight">Dragon Fight</string>
-    <string name="snowy_mountains">Snowy Moutains</string>
-    <string name="contact_us">FAQ/Contact Us</string>
-    <string name="report">Report An Issue</string>
-    <string name="subject">Subject:</string>
-    <string name="subject_hint">Subject of issue</string>
-    <string name="submit">Submit Issue</string>
-    <string name="description">Description of Issue</string>
-    <string name="faq">FAQ</string>
-    <string name="accessibility">Accessibility</string>
-    <string name="on_screen_keyboard">On Screen Keyboard</string>
-    <string name="diceroll">dicevalue</string>
-    <string name="_00">00</string>
-    <string name="roll_dice">Roll Dice</string>
 </resources>
