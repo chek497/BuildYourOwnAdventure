@@ -10,4 +10,11 @@
     <string name="create_game">Create Game</string>
     <string name="dragon_fight">Dragon Fight</string>
     <string name="snowy_mountains">Snowy Moutains</string>
+    <string name="contact_us">FAQ/Contact Us</string>
+    <string name="report">Report An Issue</string>
+    <string name="subject">Subject:</string>
+    <string name="subject_hint">Subject of issue</string>
+    <string name="submit">Submit Issue</string>
+    <string name="description">Description of Issue</string>
+    <string name="faq">FAQ</string>
 </resources>
