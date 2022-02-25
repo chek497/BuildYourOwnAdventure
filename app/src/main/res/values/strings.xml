@@ -19,4 +19,7 @@
     <string name="faq">FAQ</string>
     <string name="accessibility">Accessibility</string>
     <string name="on_screen_keyboard">On Screen Keyboard</string>
+    <string name="diceroll">dicevalue</string>
+    <string name="_00">00</string>
+    <string name="roll_dice">Roll Dice</string>
 </resources>
