@@ -15,8 +15,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //Purpose and todos. Updated: 2/18/2022
     //Landing screen, leads to other functions of the app.
-    //todo link to each other fragment
-    //todo add radio button to link to Dictionary
 
     final String TAG = "demo"; //for tag
 
