@@ -26,6 +26,7 @@ public class ToolsActivity extends AppCompatActivity {
         //get button
         Button btn = findViewById(R.id.rollDiceBtn);
         TextView tv = findViewById(R.id.txtRoll);
+        int maxInput = 0;
 
 
         btn.setOnClickListener(new View.OnClickListener() {
