@@ -2,6 +2,7 @@ package com.example.buildyourownadventure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,10 +23,23 @@ public class ToolsActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Tools"); //log successful launch
         setTitle("Tools");
 
+        //Go to dice tool button
+        Button diceBtn = findViewById(R.id.to_dice_tool);
+        diceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDiceTool();
+            }
+        });
+
+
+
+
         //Button
         //get button
         Button btn = findViewById(R.id.rollDiceBtn);
         TextView tv = findViewById(R.id.txtRoll);
+        int maxInput = 0;
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -41,5 +55,10 @@ public class ToolsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void openDiceTool(){
+        Intent diceIntent = new Intent(this, roll_the_dice.class);
+        startActivity(diceIntent);
     }
 }
