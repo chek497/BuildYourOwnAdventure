@@ -5,7 +5,8 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#1c1d1e">
 
     <TextView
         android:id="@+id/textViewChoiceLabel"
