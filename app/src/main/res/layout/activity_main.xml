@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#1c1d1e">
+    android:background="#10161a">
 
     <TextView
         android:id="@+id/textViewChoiceLabel"
@@ -16,16 +16,20 @@
         android:text="Choose a Workspace:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#a5afba"/>
 
     <Button
         android:id="@+id/buttonChangeActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Change Workspace"
+        android:background="#bc0f0f"
+        android:text="Select"
+        app:backgroundTint="#BC0F0F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 <!--        app:layout_constraintBottom_toTopOf="@+id/imageViewPythonFace"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
@@ -50,31 +54,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#242527"
+        android:textColor="#a5afba">
 
         <RadioButton
             android:id="@+id/radioButtonHubActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home" />
+            android:text="Home"
+            android:textColor="#a5afba"/>
 
         <RadioButton
             android:id="@+id/radioButtonMainActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Player" />
+            android:text="Player"
+            android:textColor="#a5afba"/>
 
         <RadioButton
             android:id="@+id/radioButtonSecondActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login/Register" />
+            android:text="Login/Register"
+            android:textColor="#a5afba"/>
 
         <RadioButton
             android:id="@+id/radioButtonThirdActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings" />
+            android:text="Settings"
+            android:textColor="#a5afba"/>
 
     </RadioGroup>
 
@@ -85,31 +95,36 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/radioGroupWorkspaceChoiceCol1"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        android:background="#242527">
 
         <RadioButton
             android:id="@+id/radioButtonFourthActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Faq/Contact Us" />
+            android:text="Faq/Contact Us"
+            android:textColor="#a5afba"/>
 
         <RadioButton
             android:id="@+id/radioButtonFifthActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Setup" />
+            android:text="Setup"
+            android:textColor="#a5afba"/>
 
         <RadioButton
             android:id="@+id/radioButtonSixthActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tools" />
+            android:text="Tools"
+            android:textColor="#a5afba"/>
 
         <RadioButton
             android:id="@+id/radioButtonSeventhActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dictionary" />
+            android:text="Dictionary"
+            android:textColor="#a5afba"/>
     </RadioGroup>
 
 <!--    <ImageView-->

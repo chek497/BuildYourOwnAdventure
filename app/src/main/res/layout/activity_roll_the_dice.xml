@@ -1,103 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#10161a"
     tools:context=".roll_the_dice">
+
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="126dp"
-        android:layout_height="61dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="119dp"
-        android:layout_marginLeft="119dp"
-        android:layout_marginTop="-1dp"
+        android:layout_width="179dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginBottom="39dp"
         android:contentDescription="@string/a_20_sided_die"
+        app:layout_constraintBottom_toTopOf="@+id/numSided"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/d20" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="87dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="139dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/numDie"
-            android:layout_width="32dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:text="1"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="dice (NOT IMPLEMENTED)"
-            android:visibility="invisible" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/rollDieBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="448dp"
-        android:text="Roll Die" />
-
-    <TextView
-        android:id="@+id/rollResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="398dp"
-        android:text="Result" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="140dp"
-        android:layout_marginRight="140dp"
-        android:layout_marginBottom="355dp"
-        android:layout_weight="1"
-        android:text="sided" />
+        android:layout_marginEnd="99dp"
+        android:layout_marginRight="99dp"
+        android:layout_marginBottom="36dp"
+        android:text="sided"
+        android:textColor="#a5afba"
+        app:layout_constraintBottom_toBottomOf="@+id/numSided"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numSided" />
+
+    <Button
+        android:id="@+id/rollDieBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="177dp"
+        android:text="Roll Die"
+        app:backgroundTint="#BC0F0F"
+        app:layout_constraintBottom_toTopOf="@+id/numDie"
+        app:layout_constraintStart_toStartOf="@+id/numSided"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult" />
+
+    <TextView
+        android:id="@+id/rollResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="7dp"
+        android:background="#333333"
+        android:text="Result"
+        android:textColor="#a5afba"
+        app:layout_constraintBottom_toTopOf="@+id/rollDieBtn"
+        app:layout_constraintEnd_toEndOf="@+id/rollDieBtn"
+        app:layout_constraintTop_toBottomOf="@+id/numSided" />
 
     <EditText
         android:id="@+id/numSided"
-        android:layout_width="84dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="182dp"
-        android:layout_marginRight="182dp"
-        android:layout_marginBottom="338dp"
-        android:layout_weight="1"
+        android:layout_width="142dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="56dp"
+        android:background="#333333"
         android:ems="10"
         android:gravity="center_horizontal"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="20" />
-</RelativeLayout>
+        android:text="20"
+        android:textColor="#a5afba"
+        app:layout_constraintBottom_toTopOf="@+id/rollResult"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/numDie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:text="1"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rollDieBtn" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="11dp"
+        android:text="dice (NOT IMPLEMENTED)"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/numDie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numDie" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

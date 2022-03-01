@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ToolsActivity">
+    tools:context=".ToolsActivity"
+    android:background="#10161a">
 
     <Button
         android:id="@+id/rollDiceBtn"
@@ -52,7 +53,8 @@
             android:id="@+id/to_dice_tool"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dice Tool" />
+            android:text="Dice Tool"
+            app:backgroundTint="#BC0F0F" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
