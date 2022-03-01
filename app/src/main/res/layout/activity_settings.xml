@@ -4,29 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    android:background="#10161a">
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="184dp"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/accessibility"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#333333"
+        android:textColor="#a5afba"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="474dp"
-        android:text="@string/on_screen_keyboard"
+        android:layout_marginBottom="241dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="124dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="43dp"
-        android:text="@string/accessibility"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
-        app:layout_constraintStart_toStartOf="@+id/switch1"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#333333"
+            android:text="@string/on_screen_keyboard"
+            android:textColor="#a5afba" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginLeft="128dp"
+            android:background="#BC0F0F"
+            android:text="@string/togglebutton"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
