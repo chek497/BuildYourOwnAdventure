@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#10161a"
     tools:context=".FaqActivity">
 
     <TextView
@@ -17,6 +18,7 @@
         android:layout_marginRight="176dp"
         android:text="@string/contact_us"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#a5afba"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +31,7 @@
         android:layout_marginTop="80dp"
         android:text="@string/report"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#a5afba"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +80,7 @@
         android:layout_marginRight="24dp"
         android:text="@string/subject"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#a5afba"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -88,6 +92,7 @@
         android:layout_marginBottom="52dp"
         android:onClick="onClick"
         android:text="@string/submit"
+        app:backgroundTint="#bc0f0f"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -98,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="@string/faq"
+        app:backgroundTint="#bc0f0f"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

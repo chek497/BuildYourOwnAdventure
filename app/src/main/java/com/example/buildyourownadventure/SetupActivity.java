@@ -23,9 +23,9 @@ public class SetupActivity extends AppCompatActivity {
         setTitle("Setup");
     }
     public void onClick(View v){
-        ConstraintLayout background = (ConstraintLayout) findViewById(R.id.constraintlayoutID);
-        TextView text = (TextView) findViewById(R.id.textView);
-        TextView text2 = (TextView) findViewById(R.id.textView3);
+        ConstraintLayout background =  findViewById(R.id.constraintlayoutID);
+        TextView text =  findViewById(R.id.textView);
+        TextView text2 =  findViewById(R.id.textView3);
         //change background images
         switch (v.getId()){
             case R.id.dragonfight:
