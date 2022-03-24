@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 choiceSelected = 2;
             } else if (checkedId == R.id.radioButtonThirdActivity) {
                 choiceSelected = 3;
+            } else if (checkedId == R.id.radioButtonEigthActivity) {
+                choiceSelected = 8;
             }
         }
     };
@@ -126,6 +128,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case 7:
                     Intent intent7 = new Intent(MainActivity.this, DictionaryActivity.class);
                     startActivity(intent7);
+                    break;
+                case 8:
+                    Intent intent8 = new Intent(MainActivity.this, BgMusicActivity.class);
+                    startActivity(intent8);
                     break;
                 default:
                     Toast.makeText(this, "Select an Activity.", Toast.LENGTH_SHORT).show();
