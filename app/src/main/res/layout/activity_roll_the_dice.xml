@@ -9,109 +9,191 @@
     tools:context=".roll_the_dice">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="179dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginBottom="39dp"
-        android:contentDescription="@string/a_20_sided_die"
-        app:layout_constraintBottom_toTopOf="@+id/numSided"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/d20" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="99dp"
-        android:layout_marginRight="99dp"
-        android:layout_marginBottom="36dp"
-        android:text="sided"
-        android:textColor="#a5afba"
-        app:layout_constraintBottom_toBottomOf="@+id/numSided"
+        <TextView
+            android:id="@+id/dResultMinus"
+            android:layout_width="92dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/dieResultMinus"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/dResultView"
+            android:layout_width="92dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/dieResultView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/dResultPlus"
+            android:layout_width="92dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/diePlusView"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/numSided" />
-
-    <Button
-        android:id="@+id/rollDieBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="177dp"
-        android:text="Roll Die"
-        app:backgroundTint="#BC0F0F"
-        app:layout_constraintBottom_toTopOf="@+id/numDie"
-        app:layout_constraintStart_toStartOf="@+id/numSided"
-        app:layout_constraintTop_toBottomOf="@+id/rollResult" />
-
-    <TextView
-        android:id="@+id/rollResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="7dp"
-        android:background="#333333"
-        android:text="Result"
-        android:textColor="#a5afba"
-        app:layout_constraintBottom_toTopOf="@+id/rollDieBtn"
-        app:layout_constraintEnd_toEndOf="@+id/rollDieBtn"
-        app:layout_constraintTop_toBottomOf="@+id/numSided" />
-
-    <EditText
-        android:id="@+id/numSided"
-        android:layout_width="142dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginLeft="139dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="56dp"
-        android:background="#333333"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:text="20"
-        android:textColor="#a5afba"
-        app:layout_constraintBottom_toTopOf="@+id/rollResult"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-    <EditText
-        android:id="@+id/numDie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:text="1"
-        android:visibility="invisible"
+        <ImageView
+            android:id="@+id/imageViewD4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/a_d4_dice"
+            app:srcCompat="@drawable/d4" />
+
+        <ImageView
+            android:id="@+id/imageViewD6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/d6v2" />
+
+        <ImageView
+            android:id="@+id/imageViewD8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/d8" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rollDieBtn" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="11dp"
-        android:text="dice (NOT IMPLEMENTED)"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/numDie"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/numDie" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <ImageView
+            android:id="@+id/imageViewD10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/d10" />
+
+        <ImageView
+            android:id="@+id/imageViewD12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/d12" />
+
+        <ImageView
+            android:id="@+id/imageViewD20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/d20v2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="409dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="Roll History"
+            android:textColor="#BAAFAF"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

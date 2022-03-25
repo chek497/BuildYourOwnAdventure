@@ -33,4 +33,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="a_20_sided_die">a 20 sided die</string>
     <string name="togglebutton">ToggleButton</string>
+    <string name="dieResultMinus">-</string>
+    <string name="dieResultView">0</string>
+    <string name="diePlusView">+</string>
+    <string name="a_d4_dice">a d4 dice</string>
 </resources>
