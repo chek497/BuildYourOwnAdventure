@@ -20,7 +20,6 @@
         <activity android:name=".SetupActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".DictionaryActivity" />
-        <activity android:name=".FaqActivity" />
         <activity android:name=".PlayerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
