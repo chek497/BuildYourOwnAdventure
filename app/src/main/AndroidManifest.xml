@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuildYourOwnAdventure">
+        <service
+            android:name=".MyMusicService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".roll_the_dice"
             android:exported="false" />
@@ -27,8 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BgMusicActivity"/>
-
+        <activity android:name=".BgMusicActivity" />
     </application>
 
 </manifest>
