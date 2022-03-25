@@ -29,6 +29,7 @@ public class roll_the_dice extends AppCompatActivity {
     private int resultCount = 0;
     private TextView tvMinus;
     private TextView tvPlus;
+    private Button resetButton;
 
 
 
@@ -58,6 +59,18 @@ public class roll_the_dice extends AppCompatActivity {
         //plus or minus
         tvMinus = (TextView)findViewById(R.id.dResultMinus);
         tvPlus = (TextView)findViewById(R.id.dResultPlus);
+
+        //rest button
+        resetButton =(Button)findViewById(R.id.resetCounter);
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resultCount = 0;
+                String string = String.valueOf(resultCount);
+                tvResult.setText(string);
+            }
+        });
 
         //onclick for D# die
         d4Die.setOnClickListener(new View.OnClickListener(){
