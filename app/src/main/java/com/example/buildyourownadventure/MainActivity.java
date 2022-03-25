@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener {
     //Purpose and todos. Updated: 2/18/2022
     //Landing screen, leads to other functions of the app.
 
@@ -22,15 +22,12 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     //Following keys for starting and identifying Fragments
     public static final String LOGIN_KEY = "LOGIN_KEY";
+    public static final String USER_KEY = "USER_KEY";
     public static final String REGISTER_KEY = "REGISTER_KEY";
-    public static final String FAQ_KEY = "FAQ_KEY";
     public static final String SETTINGS_KEY = "SETTINGS_KEY";
     public static final String CONTACT_KEY = "CONTACT_KEY";
-    public static final String DICE_KEY = "DICE_KEY";
     public static final String CALCULATOR_KEY = "CALCULATOR_KEY";
     public static final String LIBRARIES_KEY = "LIBRARIES_KEY";
-    public static final String SOUNDS_KEY = "SOUNDS_KEY";
-
 
     //Temporary users ArrayList in place of Database
     ArrayList<User> users = new ArrayList<>();
@@ -40,8 +37,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: Home"); //log successful launch
-        setTitle("Home");
+        Log.d(TAG, "onCreate: Home"); //Log successful launch
 
         //Adding administrator credentials
         users.add(admin);
@@ -54,15 +50,10 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void successfulLogin(User user) {
-        Toast.makeText(this, "Successful Login. Welcome back " + user.getFullName() + "!", Toast.LENGTH_LONG)
-                .show();
-
-        /*
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, NEXT_FRAGMENT.newInstance(), NEXT_FRAGMENT_KEY)
+                .replace(R.id.rootView, DashboardFragment.newInstance(user), USER_KEY)
                 .addToBackStack(null)
                 .commit();
-         */
     }
 
     @Override
@@ -123,6 +114,46 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     }
 
     @Override
+    public void startAIDungeon() {
+        /*
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, AIDungeonFragment.newInstance(null, null), AI_DUNGEON_KEY)
+                .addToBackStack(null)
+                .commit();
+         */
+    }
+
+    @Override
+    public void startGameSetup() {
+        /*
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, GameSetupFragment.newInstance(null, null), GAME_SETUP_KEY)
+                .addToBackStack(null)
+                .commit();
+         */
+    }
+
+    @Override
+    public void startNotes() {
+        /*
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, NotesFragment.newInstance(null, null), NOTES_KEY)
+                .addToBackStack(null)
+                .commit();
+         */
+    }
+
+    @Override
+    public void startCharacters() {
+        /*
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, PlayerFragment.newInstance(null, null), CHARACTERS_KEY)
+                .addToBackStack(null)
+                .commit();
+         */
+    }
+
+    @Override
     public void startDice() {
         Intent intentDice = new Intent(MainActivity.this, roll_the_dice.class);
         startActivity(intentDice);
@@ -152,5 +183,22 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     public void startSounds() {
         Intent intentSounds = new Intent(MainActivity.this, BgMusicActivity.class);
         startActivity(intentSounds);
+    }
+
+    @Override
+    public void startTutorial() {
+        /*
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, LibrariesFragment.newInstance(null, null), TUTORIAL_KEY)
+                .addToBackStack(null)
+                .commit();
+         */
+    }
+
+    @Override
+    public void logout() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, LoginFragment.newInstance(users), LOGIN_KEY)
+                .commit();
     }
 }

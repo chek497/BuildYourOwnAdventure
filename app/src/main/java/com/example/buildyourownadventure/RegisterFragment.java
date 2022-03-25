@@ -53,6 +53,7 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
+        getActivity().setTitle("Register");
 
         firstNameValue = view.findViewById(R.id.firstNameValue);
         lastNameValue = view.findViewById(R.id.lastNameValue);
