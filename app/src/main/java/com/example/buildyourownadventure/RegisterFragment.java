@@ -53,6 +53,7 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
+        getActivity().setTitle("Register");
 
         firstNameValue = view.findViewById(R.id.firstNameValue);
         lastNameValue = view.findViewById(R.id.lastNameValue);
@@ -64,13 +65,28 @@ public class RegisterFragment extends Fragment {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String firstName = firstNameValue.getText().toString();
                 String lastName = lastNameValue.getText().toString();
                 String email = emailRegisterValue.getText().toString();
                 String password = passwordRegisterValue.getText().toString();
 
-                registerListener.registerUser(firstName, lastName, email, password);
+                if (firstName.isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your first name.", Toast.LENGTH_SHORT)
+                            .show();
+                } else if(lastName.isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your last name.", Toast.LENGTH_SHORT)
+                            .show();
+                } else if(email.isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your email.", Toast.LENGTH_SHORT)
+                            .show();
+                } else if(password.isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter a password.", Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    Toast.makeText(getContext(), "Account Successfully Created", Toast.LENGTH_SHORT)
+                            .show();
+                    registerListener.registerUser(firstName, lastName, email, password);
+                }
 
                 /*
                 //Checking to see if account is already created with that email
