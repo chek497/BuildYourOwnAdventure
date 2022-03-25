@@ -90,9 +90,7 @@ public class LoginFragment extends Fragment {
                     if (users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
                         loginListener.successfulLogin(users.get(i));
                     } else {
-                        if (i == users.size()-1) {
-                            loginListener.unsuccessfulLogin();
-                        }
+                        loginListener.unsuccessfulLogin();
                     }
                 }
             }
