@@ -61,6 +61,41 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.IL
     }
 
     @Override
+    public void startFAQ() {
+
+    }
+
+    @Override
+    public void startSettings() {
+
+    }
+
+    @Override
+    public void startContact() {
+
+    }
+
+    @Override
+    public void startDice() {
+
+    }
+
+    @Override
+    public void startCalculator() {
+
+    }
+
+    @Override
+    public void startLibraries() {
+
+    }
+
+    @Override
+    public void startSounds() {
+
+    }
+
+    @Override
     public void registerUser(String firstName, String lastName, String email, String password) {
         User newUser = new User(firstName + " " + lastName, email, password);
         users.add(newUser);
