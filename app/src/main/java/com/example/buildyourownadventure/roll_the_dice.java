@@ -26,12 +26,12 @@ public class roll_the_dice extends AppCompatActivity {
         setContentView(R.layout.activity_roll_the_dice);
 
         //get input from num fields
-        getSides = findViewById(R.id.numSided);
-        getDie = findViewById(R.id.numDie);
+        //getSides = findViewById(R.id.numSided);
+        //getDie = findViewById(R.id.numDie);
 
         //initiate txt field and btn
-        txt = findViewById(R.id.rollResult);
-        btn = findViewById(R.id.rollDieBtn);
+        //txt = findViewById(R.id.rollResult);
+        //btn = findViewById(R.id.rollDieBtn);
 
         //get values from input
         int numSides = Integer.parseInt(getSides.getText().toString());
