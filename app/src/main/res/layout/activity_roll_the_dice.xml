@@ -9,39 +9,15 @@
     tools:context=".roll_the_dice">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="146dp"
-        android:layout_height="77dp"
-        android:contentDescription="@string/a_20_sided_die"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/d20"
-        tools:visibility="gone" />
-
-    <Button
-        android:id="@+id/rollDieBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Roll Die"
-        app:backgroundTint="#BC0F0F"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
-
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="bottom"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
@@ -51,7 +27,7 @@
             android:layout_height="61dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="-"
+            android:text="@string/dieResultMinus"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +39,7 @@
             android:layout_height="61dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="20"
+            android:text="@string/dieResultView"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +51,7 @@
             android:layout_height="61dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="+"
+            android:text="@string/diePlusView"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
     </LinearLayout>
@@ -96,21 +72,22 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageViewD4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/a_d4_dice"
             app:srcCompat="@drawable/d4" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageViewD6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/d6v2" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageViewD8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -133,21 +110,21 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imageViewD10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/d10" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imageViewD12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/d12" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imageViewD20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -158,13 +135,65 @@
         android:id="@+id/linearLayout6"
         android:layout_width="409dp"
         android:layout_height="0dp"
-        android:layout_marginTop="202dp"
+        android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
+        android:gravity="bottom"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="Roll History"
+            android:textColor="#BAAFAF"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHistory1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#BAAFAF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
