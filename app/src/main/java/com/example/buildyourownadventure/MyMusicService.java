@@ -13,7 +13,7 @@ public class MyMusicService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        Toast.makeText(this, "Service created", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MyMusicService extends Service {
         }
         player = MediaPlayer.create(MyMusicService.this, resId);
         player.start();
-        Toast.makeText(this, "Service started", Toast.LENGTH_SHORT).show();
+
         return super.onStartCommand(intent, flags, startId);
 
 
@@ -35,7 +35,7 @@ public class MyMusicService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Toast.makeText(this, "Service destroyed", Toast.LENGTH_SHORT).show();
+
         player.stop();
         player.release();
     }
