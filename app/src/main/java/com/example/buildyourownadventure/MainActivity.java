@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener, ContactFragment.IContactListener {
     //Purpose and todos. Updated: 2/18/2022
     //Landing screen, leads to other functions of the app.
 
@@ -105,12 +105,10 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void startContact() {
-        /*
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, ContactFragment.newInstance(null, null), CONTACT_KEY)
+                .replace(R.id.rootView, ContactFragment.newInstance(), CONTACT_KEY)
                 .addToBackStack(null)
                 .commit();
-         */
     }
 
     @Override
@@ -200,5 +198,10 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.rootView, LoginFragment.newInstance(users), LOGIN_KEY)
                 .commit();
+    }
+
+    @Override
+    public void endContact() {
+        getSupportFragmentManager().popBackStack();
     }
 }
