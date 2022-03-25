@@ -37,6 +37,7 @@ public class roll_the_dice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_the_dice);
+        setTitle("Dice");
 
         //result and die imageviews
         tvResult = (TextView)findViewById(R.id.dResultView);
@@ -167,7 +168,7 @@ public class roll_the_dice extends AppCompatActivity {
         switch (count) {
             //imageview 1 for roll history is not displaying, skip to 2
             case 1:
-                tvHist1.setText("Rolled: " + dieResult);
+                tvHist1.setText("");
                 break;
             case 2:
                 tvHist2.setText("You rolled a " + s);
