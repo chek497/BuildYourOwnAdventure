@@ -45,35 +45,18 @@ public class LoginFragment extends Fragment {
     EditText emailValue;
     EditText passwordValue;
     Button loginButton;
-    Button startRegisterButton;
-
-    Button faqButton;
-    Button contactButton;
-    Button settingsButton;
-    Button calcButton;
-    Button diceButton;
-    Button soundsButton;
-    Button librariesButton;
+    TextView signUpTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        getActivity().setTitle("Home");
 
         emailValue = view.findViewById(R.id.emailValue);
         passwordValue = view.findViewById(R.id.passwordValue);
         loginButton = view.findViewById(R.id.loginButton);
-        startRegisterButton = view.findViewById(R.id.startRegisterButton);
-
-        faqButton = view.findViewById(R.id.faqButton);
-        contactButton = view.findViewById(R.id.contactButton);
-        settingsButton = view.findViewById(R.id.settingsButton);
-        calcButton = view.findViewById(R.id.calcButton);
-        diceButton = view.findViewById(R.id.diceButton);
-        soundsButton = view.findViewById(R.id.soundsButton);
-        librariesButton = view.findViewById(R.id.librariesButton);
+        signUpTextView = view.findViewById(R.id.signUpTextView);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,65 +74,18 @@ public class LoginFragment extends Fragment {
                     if (users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
                         loginListener.successfulLogin(users.get(i));
                     } else {
-                        loginListener.unsuccessfulLogin();
+                        if (i == users.size()-1) {
+                            loginListener.unsuccessfulLogin();
+                        }
                     }
                 }
             }
         });
 
-        startRegisterButton.setOnClickListener(new View.OnClickListener() {
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginListener.startRegister(users);
-            }
-        });
-
-        faqButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startFAQ();
-            }
-        });
-
-        contactButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startContact();
-            }
-        });
-
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startSettings();
-            }
-        });
-
-        calcButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startCalculator();
-            }
-        });
-
-        diceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startDice();
-            }
-        });
-
-        soundsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startSounds();
-            }
-        });
-
-        librariesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startLibraries();
             }
         });
 
@@ -173,13 +109,6 @@ public class LoginFragment extends Fragment {
         void successfulLogin(User user);
         void unsuccessfulLogin();
         void startRegister(ArrayList<User> users);
-        void startFAQ();
-        void startSettings();
-        void startContact();
-        void startDice();
-        void startCalculator();
-        void startLibraries();
-        void startSounds();
     }
 
 }
