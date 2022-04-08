@@ -37,4 +37,5 @@
     <string name="dieResultView">0</string>
     <string name="diePlusView">+</string>
     <string name="a_d4_dice">a d4 dice</string>
+    <string name="title_activity_character">CharacterActivity</string>
 </resources>

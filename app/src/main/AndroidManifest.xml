@@ -10,15 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuildYourOwnAdventure">
         <activity
+            android:name=".CharacterActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".MyMusicService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
             android:name=".roll_the_dice"
             android:exported="false" />
         <activity android:name=".ToolsActivity" />
         <activity android:name=".SetupActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".DictionaryActivity" />
-        <activity android:name=".FaqActivity" />
         <activity android:name=".PlayerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -27,8 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BgMusicActivity"/>
-
+        <activity android:name=".BgMusicActivity" />
     </application>
 
 </manifest>

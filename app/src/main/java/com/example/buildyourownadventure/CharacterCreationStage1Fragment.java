@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FaqFragment#newInstance} factory method to
+ * Use the {@link CharacterCreationStage1Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FaqFragment extends Fragment {
+public class CharacterCreationStage1Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class FaqFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FaqFragment() {
+    public CharacterCreationStage1Fragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class FaqFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FaqFragment.
+     * @return A new instance of fragment CharacterCreationStage1.
      */
     // TODO: Rename and change types and number of parameters
-    public static FaqFragment newInstance(String param1, String param2) {
-        FaqFragment fragment = new FaqFragment();
+    public static CharacterCreationStage1Fragment newInstance(String param1, String param2) {
+        CharacterCreationStage1Fragment fragment = new CharacterCreationStage1Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class FaqFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_faq, container, false);
+        return inflater.inflate(R.layout.fragment_character_creation_stage1, container, false);
     }
 }
