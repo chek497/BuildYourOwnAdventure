@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class roll_the_dice extends AppCompatActivity {
 
-    
+
     private ImageView d4Die;
     private ImageView d6Die;
     private ImageView d8Die;
