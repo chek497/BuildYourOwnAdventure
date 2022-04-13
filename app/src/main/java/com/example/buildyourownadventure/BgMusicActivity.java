@@ -3,14 +3,12 @@ package com.example.buildyourownadventure;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -19,7 +17,6 @@ public class BgMusicActivity extends AppCompatActivity {
 
     final String TAG = "demo"; //for tag
     ListView listView;
-    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
