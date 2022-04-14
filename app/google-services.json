@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "525529118013",
+    "project_id": "buildyourownadventure-5c72b",
+    "storage_bucket": "buildyourownadventure-5c72b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525529118013:android:e133886c110a3b3e670154",
+        "android_client_info": {
+          "package_name": "com.example.buildyourownadventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525529118013-j2ub57mjj6adarsilugjkp4d442g6nci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsKDBW4nHWZeC_EKMewvIyrW_2T4OEr1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525529118013-j2ub57mjj6adarsilugjkp4d442g6nci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
