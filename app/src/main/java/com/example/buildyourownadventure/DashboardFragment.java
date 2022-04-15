@@ -6,26 +6,27 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class DashboardFragment extends Fragment {
 
     public static final String USER_KEY = "USER_KEY";
-
-    private User user;
+    private FirebaseAuth mAuth;
 
     public DashboardFragment() {
         // Required empty public constructor
     }
 
-    public static DashboardFragment newInstance(User user) {
+    public static DashboardFragment newInstance() {
         DashboardFragment fragment = new DashboardFragment();
         Bundle args = new Bundle();
-        args.putSerializable(USER_KEY, user);
         fragment.setArguments(args);
         return fragment;
     }
@@ -33,9 +34,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            user = (User) getArguments().getSerializable(USER_KEY);
-        }
+        if (getArguments() != null) {}
     }
 
     TextView userLabel;
@@ -60,8 +59,18 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         getActivity().setTitle("Dashboard");
 
+        //Initialize FirebaseAuth instance object
+        mAuth = FirebaseAuth.getInstance();
+
+        Log.d("demo", "displayName: " + mAuth.getCurrentUser().getDisplayName());
+
         userLabel = view.findViewById(R.id.userLabel);
-        userLabel.setText("Welcome " + user.getFullName());
+        dashboardListener.runOnUIThreadDashboardSetDisplayName(new Runnable() {
+            @Override
+            public void run() {
+                userLabel.setText("Welcome " + mAuth.getCurrentUser().getDisplayName());
+            }
+        });
 
         dungeonAIButtonDashboard = view.findViewById(R.id.dungeonAIButtonDashboard);
         gameSetupButtonDashboard = view.findViewById(R.id.gameSetupButtonDashboard);
@@ -143,6 +152,7 @@ public class DashboardFragment extends Fragment {
         logoutButtonDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
                 dashboardListener.logout();
             }
         });
@@ -186,6 +196,7 @@ public class DashboardFragment extends Fragment {
     }
 
     public interface IDashboardListener{
+        void runOnUIThreadDashboardSetDisplayName(Runnable runnable);
         void startAIDungeon();
         void startGameSetup();
         void startNotes();

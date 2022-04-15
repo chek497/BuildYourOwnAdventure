@@ -13,10 +13,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
 public class LoginFragment extends Fragment {
+
+    private FirebaseAuth mAuth;
+    final private String TAG = "demo";
 
     public LoginFragment() {
         // Required empty public constructor
@@ -24,12 +33,9 @@ public class LoginFragment extends Fragment {
     public static final String USER_LIST_KEY = "USER_LIST_KEY";
     public static final String LOGIN_KEY = "LOGIN_KEY";
 
-    public ArrayList<User> users = new ArrayList<>();
-
-    public static LoginFragment newInstance(ArrayList<User> users) {
+    public static LoginFragment newInstance() {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
-        args.putSerializable(LOGIN_KEY, users);
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,9 +43,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            users = (ArrayList<User>) getArguments().getSerializable(LOGIN_KEY);
-        }
+        if (getArguments() != null) {}
     }
 
     EditText emailValue;
@@ -81,12 +85,30 @@ public class LoginFragment extends Fragment {
                 String email = emailValue.getText().toString();
                 String password = passwordValue.getText().toString();
 
-                Log.d("TEST", "users" + users.toString());
-                Log.d("TEST", "user" + users.get(0).toString());
-                Log.d("TEST", "Fullname: " + users.get(0).getFullName());
-                Log.d("TEST", "Email: " + users.get(0).getEmail());
-                Log.d("TEST", "Password: " + users.get(0).getPassword());
-
+                if (email.isEmpty()) {
+                    Toast.makeText(getContext(), "Email is required", Toast.LENGTH_SHORT).show();
+                } else if(password.isEmpty()) {
+                    Toast.makeText(getContext(), "Password  is required", Toast.LENGTH_SHORT).show();
+                } else {
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        loginListener.successfulLogin();
+                                        Log.d(TAG, "onComplete: Logged In Successfully");
+                                        Log.d(TAG, "onComplete: " + mAuth.getCurrentUser().getUid());
+                                    } else {
+                                        String errorMessage = task.getException().getMessage();
+                                        loginListener.unsuccessfulLogin(errorMessage);
+                                        Log.d(TAG, "onComplete: Error");
+                                        Log.d(TAG, "onComplete: " + task.getException().getMessage());
+                                    }
+                                }
+                            });
+                }
+                /*
                 for (int i = 0; i < users.size(); i++) {
                     if (users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
                         loginListener.successfulLogin(users.get(i));
@@ -94,13 +116,14 @@ public class LoginFragment extends Fragment {
                         loginListener.unsuccessfulLogin();
                     }
                 }
+                 */
             }
         });
 
         startRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginListener.startRegister(users);
+                loginListener.startRegister();
             }
         });
 
@@ -170,9 +193,9 @@ public class LoginFragment extends Fragment {
     }
 
     public interface ILoginListener{
-        void successfulLogin(User user);
-        void unsuccessfulLogin();
-        void startRegister(ArrayList<User> users);
+        void successfulLogin();
+        void unsuccessfulLogin(String errorMessage);
+        void startRegister();
         void startFAQ();
         void startSettings();
         void startContact();

@@ -12,12 +12,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener, ContactFragment.IContactListener, CharacterFragment.ICreateCharacterListener {
     //Purpose and todos. Updated: 2/18/2022
     //Landing screen, leads to other functions of the app.
 
+    //FirebaseAuth object variable
+    FirebaseAuth mAuth;
     final String TAG = "demo"; //For Logging and Testing Purposes
 
     //Following keys for starting and identifying Fragments
@@ -29,55 +33,59 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     public static final String CALCULATOR_KEY = "CALCULATOR_KEY";
     public static final String LIBRARIES_KEY = "LIBRARIES_KEY";
 
-    //Temporary users ArrayList in place of Database
-    ArrayList<User> users = new ArrayList<>();
-    User admin = new User("Administrator_Account", "byoa", "1");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Home"); //Log successful launch
 
-        //Adding administrator credentials
-        users.add(admin);
+        //Initialize FirebaseAuth instance object
+        mAuth = FirebaseAuth.getInstance();
 
-        //Starting LoginFragment
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.rootView, LoginFragment.newInstance(users), LOGIN_KEY)
-                .commit();
+        //If there is not a current user authenticated, send Login Fragment
+        //If there is a user authenticated, send Dashboard fragment
+        if(mAuth.getCurrentUser() == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.rootView, new LoginFragment())
+                    .commit();
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.rootView, new DashboardFragment())
+                    .commit();
+        }
     }
 
     @Override
-    public void successfulLogin(User user) {
+    public void successfulLogin() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, DashboardFragment.newInstance(user), USER_KEY)
+                .replace(R.id.rootView, DashboardFragment.newInstance(), USER_KEY)
                 .addToBackStack(null)
                 .commit();
     }
 
     @Override
-    public void unsuccessfulLogin() {
-        Toast.makeText(this, "Unsuccessful Login. The email or password are invalid.", Toast.LENGTH_LONG)
-                .show();
+    public void unsuccessfulLogin(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void startRegister(ArrayList<User> users) {
+    public void startRegister() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, RegisterFragment.newInstance(users), REGISTER_KEY)
+                .replace(R.id.rootView, RegisterFragment.newInstance(), REGISTER_KEY)
                 .addToBackStack(null)
                 .commit();
     }
 
     @Override
-    public void registerUser(String firstName, String lastName, String email, String password) {
-        User newUser = new User(firstName + " " + lastName, email, password);
-        users.add(newUser);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(LOGIN_KEY, users);
-        getSupportFragmentManager().findFragmentByTag(LOGIN_KEY).setArguments(bundle);
-        getSupportFragmentManager().popBackStack();
+    public void successfulRegister() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, new LoginFragment())
+                .commit();
+    }
+
+    @Override
+    public void unsuccessfulRegister(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -109,6 +117,11 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
                 .replace(R.id.rootView, ContactFragment.newInstance(), CONTACT_KEY)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    @Override
+    public void runOnUIThreadDashboardSetDisplayName(Runnable runnable) {
+        runnable.run();
     }
 
     @Override
@@ -194,12 +207,13 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     @Override
     public void logout() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, LoginFragment.newInstance(users), LOGIN_KEY)
+                .replace(R.id.rootView, LoginFragment.newInstance(), LOGIN_KEY)
                 .commit();
     }
 
     @Override
     public void endContact() {
+        Toast.makeText(this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
         getSupportFragmentManager().popBackStack();
     }
 
