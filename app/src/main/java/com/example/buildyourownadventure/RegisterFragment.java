@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,21 +15,32 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class RegisterFragment extends Fragment {
-
-    public static final String REGISTER_KEY = "REGISTER_KEY";
-    public ArrayList<User> users = new ArrayList<>();
+    private FirebaseAuth mAuth;
+    final private String TAG = "demo";
 
     public RegisterFragment() {
         // Required empty public constructor
     }
 
-    public static RegisterFragment newInstance(ArrayList<User> users) {
+    public static RegisterFragment newInstance() {
         RegisterFragment fragment = new RegisterFragment();
         Bundle args = new Bundle();
-        args.putSerializable(REGISTER_KEY, users);
         fragment.setArguments(args);
         return fragment;
     }
@@ -36,9 +48,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            users = (ArrayList<User>) getArguments().getSerializable(REGISTER_KEY);
-        }
+        if (getArguments() != null) {}
     }
 
     EditText firstNameValue;
@@ -47,6 +57,9 @@ public class RegisterFragment extends Fragment {
     EditText passwordRegisterValue;
     Button registerButton;
     Button backToLoginButton;
+
+    //Thread handlers
+    ExecutorService threadPool;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +74,8 @@ public class RegisterFragment extends Fragment {
         passwordRegisterValue = view.findViewById(R.id.passwordRegisterValue);
         registerButton = view.findViewById(R.id.registerButton);
         backToLoginButton = view.findViewById(R.id.backToLoginButton);
+
+        threadPool = Executors.newFixedThreadPool(4);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,33 +98,60 @@ public class RegisterFragment extends Fragment {
                     Toast.makeText(getContext(), "Please enter a password.", Toast.LENGTH_SHORT)
                             .show();
                 } else {
-                    Toast.makeText(getContext(), "Account Successfully Created", Toast.LENGTH_SHORT)
-                            .show();
-                    registerListener.registerUser(firstName, lastName, email, password);
+                    mAuth = FirebaseAuth.getInstance();
+
+                    String name = firstName + " " + lastName;
+
+                    //Create user with Email and Password
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()) {
+                                        //Update user profile with name
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(name)
+                                                .build();
+                                        mAuth.getCurrentUser().updateProfile(profileUpdates)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            Log.d(TAG, "User profile updated.");
+                                                        }
+                                                    }
+                                                });
+                                        Toast.makeText(getActivity(), "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                                        registerListener.successfulRegister();
+                                        Log.d(TAG, "onComplete: Registered Successfully");
+
+                                        Map<String, String> user = new HashMap<>();
+                                        user.put("name", name);
+                                        user.put("userId", mAuth.getCurrentUser().getUid());
+
+                                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                        db.collection("users").document(name)
+                                                .set(user)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Log.w(TAG, "Error writing document", e);
+                                                    }
+                                                });
+                                    } else {
+                                        String errorMessage = task.getException().getMessage();
+                                        registerListener.unsuccessfulRegister(errorMessage);
+                                        Log.d(TAG, "onComplete: Error");
+                                    }
+                                }
+                            });
                 }
-
-                /*
-                //Checking to see if account is already created with that email
-                //Does not work yet
-
-                Log.d("TEST", "Users: " + users.toString());
-                Log.d("TEST", "Number of users: " + users.size());
-                Log.d("TEST", "User: " + users.get(0).toString());
-                Log.d("TEST", "Email: " + users.get(0).getEmail());
-                Log.d("TEST", "Registering Email: " + email);
-
-                for (int i = 0; i < users.size(); i++) {
-                    if (email.equals(users.get(i).getEmail())) {
-                        Log.d("TEST", "Inside IF");
-
-                        Toast.makeText(getContext(), "Error. There is already an account associated with that email address.", Toast.LENGTH_SHORT)
-                                .show();
-                    } else {
-                        Log.d("TEST", "Inside ELSE");
-
-                        registerListener.registerUser(firstName, lastName, email, password);
-                    }
-                }*/
             }
         });
 
@@ -137,7 +179,8 @@ public class RegisterFragment extends Fragment {
     }
 
     public interface IRegisterListener{
-        void registerUser(String firstName, String lastName, String email, String password);
+        void successfulRegister();
+        void unsuccessfulRegister(String errorMessage);
         void cancelRegister();
     }
 
