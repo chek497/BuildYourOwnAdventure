@@ -204,6 +204,7 @@ public class DashboardFragment extends Fragment {
         void startDice();
         void startCalculator();
         void startLibraries();
+        void startGridMap();
         void startSounds();
         void startTutorial();
         void logout();

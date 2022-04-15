@@ -193,6 +193,11 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
         Intent intentSounds = new Intent(MainActivity.this, BgMusicActivity.class);
         startActivity(intentSounds);
     }
+    @Override
+    public void startGridMap() {
+        Intent intentGridMap = new Intent(MainActivity.this, GridMapActivity.class);
+        startActivity(intentGridMap);
+    }
 
     @Override
     public void startTutorial() {
