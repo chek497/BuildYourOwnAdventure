@@ -142,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
                 .addToBackStack(null)
                 .commit();
          */
+        Intent intent = new Intent(this, GridMapActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -152,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
                 .addToBackStack(null)
                 .commit();
          */
+
     }
 
     @Override
