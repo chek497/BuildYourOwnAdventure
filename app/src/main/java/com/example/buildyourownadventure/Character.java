@@ -3,6 +3,7 @@ package com.example.buildyourownadventure;
 import java.io.Serializable;
 
 public class Character implements Serializable {
+    int delete;
     String name;
     String characterClass;
     String background;
