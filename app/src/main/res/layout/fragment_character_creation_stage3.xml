@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DC4439"
+    tools:context=".CharacterCreationStage3Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/guide4"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+
+    <TextView
+        android:id="@+id/textViewStrength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guide4"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Strength"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewDexterity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewStrength"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
+        android:text="Dexterity"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewConstitution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDexterity"
+        android:layout_centerInParent="true"
+        android:text="Constitution"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/textViewIntelligence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewConstitution"
+        android:layout_centerInParent="true"
+        android:text="Intelligence"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/textViewWisdom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewIntelligence"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
+        android:text="Wisdom"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewCharisma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewWisdom"
+        android:layout_centerInParent="true"
+        android:text="Charisma"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="60dp"/>
+
+    <EditText
+        android:id="@+id/editTextNumberStrength1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/textViewStrength"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/editTextNumberStrength2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextNumberStrength1"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/editTextNumberDexterity1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/textViewDexterity"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/editTextNumberDexterity2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextNumberDexterity1"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/editTextNumberConstitution1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/textViewConstitution"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/editTextNumberConstitution2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextNumberConstitution1"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/editTextNumberIntelligence1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/textViewIntelligence"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/editTextNumberIntelligence2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextNumberIntelligence1"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/editTextNumberWisdom1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/textViewWisdom"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/editTextNumberWisdom2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextNumberWisdom1"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextNumberCharisma1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/textViewCharisma"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextNumberCharisma2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/editTextNumberCharisma1"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/buttonBack3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNumberCharisma2"
+        android:layout_marginLeft="20dp"
+        android:backgroundTint="#EFB644"
+        android:text="Back"
+        android:textColor="#292323" />
+
+    <Button
+        android:id="@+id/buttonNext3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNumberCharisma2"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#EFB644"
+        android:text="Next"
+        android:textColor="#292323" />
+
+
+</RelativeLayout>

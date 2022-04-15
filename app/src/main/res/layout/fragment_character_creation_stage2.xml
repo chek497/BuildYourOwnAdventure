@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DC4439"
+    tools:context=".CharacterCreationStage2Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/guide3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="10dp"
+        android:text="Alignment"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroupGood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView26"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+
+        <RadioButton
+            android:id="@+id/radioLawfulGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LawfulGood" />
+
+        <RadioButton
+            android:id="@+id/radioNeutralGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="NeutralGood" />
+
+        <RadioButton
+            android:id="@+id/radioChaoticGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="ChaoticGood" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/RadioGroupNeutral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RadioGroupGood"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+
+        <RadioButton
+            android:id="@+id/radioLawfulNeutral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LawfulNeutral" />
+
+        <RadioButton
+            android:id="@+id/radioTrueNeutral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="TrueNeutral" />
+
+        <RadioButton
+            android:id="@+id/radioChaoticNeutral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="ChaoticNeutral" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/RadioGroupEvil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RadioGroupNeutral"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true">
+
+        <RadioButton
+            android:id="@+id/radioLawfulEvil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LawfulEvil" />
+
+        <RadioButton
+            android:id="@+id/radioNeutralEvil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="NeutralEvil" />
+
+        <RadioButton
+            android:id="@+id/radioChaoticEvil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="ChaoticEvil" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RadioGroupEvil"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Experience Points"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextTextXP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView27"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Enter XP"
+        android:inputType="textPersonName"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextTextXP"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Inspiration"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNumberInsperation"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Proficiency Bonus"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextNumberInsperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView28"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Enter Inspiration"
+        android:inputType="number"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/editTextNumberProficiencyBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView29"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Enter Proficiency"
+        android:inputType="number"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/buttonBack2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNumberProficiencyBonus"
+        android:layout_marginLeft="20dp"
+        android:backgroundTint="#EFB644"
+        android:text="Back"
+        android:textColor="#292323" />
+
+    <Button
+        android:id="@+id/buttonNext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNumberProficiencyBonus"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#EFB644"
+        android:text="Next"
+        android:textColor="#292323" />
+
+</RelativeLayout>

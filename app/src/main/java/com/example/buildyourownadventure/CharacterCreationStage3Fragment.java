@@ -13,10 +13,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CharacterCreationStage1Fragment#newInstance} factory method to
+ * Use the {@link CharacterCreationStage3Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CharacterCreationStage1Fragment extends Fragment {
+public class CharacterCreationStage3Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +27,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CharacterCreationStage1Fragment() {
+    public CharacterCreationStage3Fragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +37,11 @@ public class CharacterCreationStage1Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CharacterCreationStage1.
+     * @return A new instance of fragment CharacterCreationStage3Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CharacterCreationStage1Fragment newInstance(String param1, String param2) {
-        CharacterCreationStage1Fragment fragment = new CharacterCreationStage1Fragment();
+    public static CharacterCreationStage3Fragment newInstance(String param1, String param2) {
+        CharacterCreationStage3Fragment fragment = new CharacterCreationStage3Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,55 +57,54 @@ public class CharacterCreationStage1Fragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    Button buttonBack;
-    Button buttonNext1;
+    Button buttonBack3;
+    Button buttonNext3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_character_creation_stage1, container, false);
+        View view = inflater.inflate(R.layout.fragment_character_creation_stage3, container, false);
 
-        buttonBack = view.findViewById(R.id.buttonBack1);
-        buttonNext1 = view.findViewById(R.id.buttonNext1);
+        buttonBack3 = view.findViewById(R.id.buttonBack3);
+        buttonNext3 = view.findViewById(R.id.buttonNext3);
 
-
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        buttonBack3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateCharacterStage1Listener.backFromStage1();
+                CreateCharacterStage3Listener.backFromStage3();
             }
         });
-
-        buttonNext1.setOnClickListener(new View.OnClickListener() {
+        buttonNext3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateCharacterStage1Listener.toStage2();
+                CreateCharacterStage3Listener.toStage4();
             }
         });
-
-
 
 
         return view;
     }
 
-    ICreateCharacterStage1Listener CreateCharacterStage1Listener;
+
+
+
+
+    ICreateCharacterStage3Listener CreateCharacterStage3Listener;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        if (context instanceof ICreateCharacterStage1Listener) {
-            CreateCharacterStage1Listener = (ICreateCharacterStage1Listener) context;
+        if (context instanceof ICreateCharacterStage3Listener) {
+            CreateCharacterStage3Listener = (ICreateCharacterStage3Listener) context;
         } else {
             throw new RuntimeException(context.toString() + " must implement ICreateCharacterStage1Listener");
         }
     }
 
-    public interface ICreateCharacterStage1Listener{
-        void backFromStage1();
-        void toStage2();
+    public interface ICreateCharacterStage3Listener{
+        void backFromStage3();
+        void toStage4();
     }
 }
