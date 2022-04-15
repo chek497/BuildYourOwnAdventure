@@ -213,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void endContact() {
+        Toast.makeText(this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
         getSupportFragmentManager().popBackStack();
     }
 

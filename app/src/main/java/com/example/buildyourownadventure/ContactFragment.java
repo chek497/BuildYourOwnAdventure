@@ -6,15 +6,21 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ContactFragment extends Fragment {
-
-    public static final String CONTACT_KEY = "CONTACT_KEY";
+    public static final String TAG = "demo";
 
     public ContactFragment() {
         // Required empty public constructor
@@ -30,11 +36,10 @@ public class ContactFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            //mParam1 = getArguments().getString(CONTACT_KEY);
-        }
     }
 
+    EditText nameValueContact;
+    EditText emailValueContact;
     EditText subjectValue;
     EditText descriptionValue;
     Button submitButtonContact;
@@ -44,22 +49,61 @@ public class ContactFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
+        getActivity().setTitle("Contact Us");
 
+        nameValueContact = view.findViewById(R.id.nameValueContact);
+        emailValueContact = view.findViewById(R.id.emailValueContact);
         subjectValue = view.findViewById(R.id.subjectValue);
         descriptionValue = view.findViewById(R.id.descriptionValue);
         submitButtonContact = view.findViewById(R.id.submitButtonContact);
 
-        String subject = String.valueOf(subjectValue.getText());
-        String description = String.valueOf(descriptionValue.getText());
-
         submitButtonContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
-                //SEND FORM USING OKHTTP3
-                //SEND TO EMAIL OR ADD TO DATABASE
+                //Collect response values
+                String name = String.valueOf(nameValueContact.getText());
+                String email = String.valueOf(emailValueContact.getText());
+                String subject = String.valueOf(subjectValue.getText());
+                String description = String.valueOf(descriptionValue.getText());
 
-                contactListener.endContact();
+                //Input validation for every field to be required
+                if(name.isEmpty()) {
+                    Toast.makeText(getContext(), "Name is required", Toast.LENGTH_SHORT).show();
+                } else if(email.isEmpty()) {
+                    Toast.makeText(getContext(), "Email is required", Toast.LENGTH_SHORT).show();
+                } else if (subject.isEmpty()) {
+                    Toast.makeText(getContext(), "Subject is required", Toast.LENGTH_SHORT).show();
+                } else if(description.isEmpty()) {
+                    Toast.makeText(getContext(), "Description is required", Toast.LENGTH_SHORT).show();
+                } else {
+                    //Initialize FireBaseFirestoreDB instance object
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                    //Create new ContactFormResponse object to store response
+                    ContactFormResponse newResponse = new ContactFormResponse();
+                    newResponse.setName(name);
+                    newResponse.setEmail(email);
+                    newResponse.setSubject(subject);
+                    newResponse.setDescription(description);
+
+                    //Send contact form response to database
+                    //Document ID is automatically generated;
+                    db.collection("ContactFormResponses")
+                            .add(newResponse)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error adding document", e);
+                                }
+                            });
+                    contactListener.endContact();
+                }
             }
         });
 
