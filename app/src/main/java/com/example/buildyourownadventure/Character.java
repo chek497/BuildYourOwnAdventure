@@ -3,13 +3,11 @@ package com.example.buildyourownadventure;
 import java.io.Serializable;
 
 public class Character implements Serializable {
-    int delete;
     String name;
     String characterClass;
     String background;
     String race;
     String alignment;
-    String[] savingThrows;
     String[] skills;
     String[][][] toolProficiencies;
     String[][][] attacksSpells;
@@ -20,6 +18,8 @@ public class Character implements Serializable {
     String bonds;
     String flaws;
     String bio;
+
+
 
     int experiencePoints;
     int inspiration;
@@ -39,6 +39,39 @@ public class Character implements Serializable {
     int intelligence;
     int wisdom;
     int charisma;
+    int copper;
+    int silver;
+    int electrum;
+    int gold;
+    int platinum;
+
+    /*SavingThrows And Skills*/
+    int AttributeStrength;
+    int AttributeDexterity;
+    int AttributeConstitution;
+    int AttributeIntelligence;
+    int AttributeWisdom;
+    int AttributeCharisma;
+
+    int AttributeAcrobatics;
+    int AttributeAnimalHandling;
+    int AttributeArcana;
+    int AttributeAthletics;
+    int AttributeDeception;
+    int AttributeHistory;
+    int AttributeInsight;
+    int AttributeIntimidation;
+    int AttributeInvestigation;
+    int AttributeMedicine;
+    int AttributeNature;
+    int AttributePerception;
+    int AttributePerformance;
+    int AttributePersuasion;
+    int AttributeReligion;
+    int AttributeSleightOfHand;
+    int AttributeStealth;
+    int AttributeSurvival;
+
 
     int failures;   /*Death*/
     int successes;  /*Saves*/
