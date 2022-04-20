@@ -144,20 +144,20 @@
         android:layout_below="@+id/textView43"
         android:layout_marginTop="500dp"
         android:layout_toRightOf="@id/RadioGroupSkills"
-        android:backgroundTint="#EFB644"
         android:text="Back"
-        android:textColor="#292323"/>
+        android:backgroundTint="#EFB644"
+        android:textColor="#292323" />
 
     <Button
         android:id="@+id/buttonNext5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView43"
-        android:layout_toRightOf="@id/buttonBack5"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="500dp"
+        android:layout_toRightOf="@id/buttonBack5"
         android:backgroundTint="#EFB644"
         android:text="Next"
-        android:textColor="#292323"/>
+        android:textColor="#292323" />
 
 </RelativeLayout>
