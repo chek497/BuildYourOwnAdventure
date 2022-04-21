@@ -13,10 +13,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CharacterCreationStage9Fragment#newInstance} factory method to
+ * Use the {@link CharacterCreationStage10Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CharacterCreationStage9Fragment extends Fragment {
+public class CharacterCreationStage10Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +27,7 @@ public class CharacterCreationStage9Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CharacterCreationStage9Fragment() {
+    public CharacterCreationStage10Fragment() {
         // Required empty public constructor
     }
 
@@ -37,11 +37,11 @@ public class CharacterCreationStage9Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CharacterCreationStage9Fragment.
+     * @return A new instance of fragment CharacterCreationStage10Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CharacterCreationStage9Fragment newInstance(String param1, String param2) {
-        CharacterCreationStage9Fragment fragment = new CharacterCreationStage9Fragment();
+    public static CharacterCreationStage10Fragment newInstance(String param1, String param2) {
+        CharacterCreationStage10Fragment fragment = new CharacterCreationStage10Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,51 +57,45 @@ public class CharacterCreationStage9Fragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     Button back;
-    Button next;
-
+    Button createCharacter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_character_creation_stage9, container, false);
-        back = view.findViewById(R.id.buttonBackStage9);
-        next = view.findViewById(R.id.buttonNextStage9);
+        View view = inflater.inflate(R.layout.fragment_character_creation_stage10, container, false);
+        back = view.findViewById(R.id.buttonBackStage10);
+        createCharacter = view.findViewById(R.id.buttonCreateStage10);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateCharacterStage9Listener.backFromStage9();
+                CreateCharacterStage10Listener.backFromStage10();
             }
         });
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CreateCharacterStage9Listener.toStage10();
-            }
-        });
+
+
 
 
         return view;
     }
 
-    ICreateCharacterStage9Listener CreateCharacterStage9Listener;
+    ICreateCharacterStage10Listener CreateCharacterStage10Listener;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        if (context instanceof ICreateCharacterStage9Listener) {
-            CreateCharacterStage9Listener = (ICreateCharacterStage9Listener) context;
+        if (context instanceof ICreateCharacterStage10Listener) {
+            CreateCharacterStage10Listener = (ICreateCharacterStage10Listener) context;
         } else {
             throw new RuntimeException(context.toString() + " must implement ICreateCharacterStage1Listener");
         }
     }
 
-    public interface ICreateCharacterStage9Listener{
-        void backFromStage9();
-        void toStage10();
+    public interface ICreateCharacterStage10Listener{
+        void backFromStage10();
+        void createCharacter();
     }
 }

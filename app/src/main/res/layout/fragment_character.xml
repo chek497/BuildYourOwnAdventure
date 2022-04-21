@@ -24,11 +24,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CharacterRecyclerView"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="-60dp"
         android:backgroundTint="#EFB644"
         android:text="Create New"
+        android:textColor="#292323"
+        android:layout_marginRight="10dp"/>
+
+    <Button
+        android:id="@+id/buttonBackFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CharacterRecyclerView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-60dp"
+        android:backgroundTint="#EFB644"
+        android:text="Back"
         android:textColor="#292323" />
 
 </RelativeLayout>

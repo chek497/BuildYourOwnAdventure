@@ -5,11 +5,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class CharacterActivity extends AppCompatActivity implements CharacterFragment.ICreateCharacterListener, CharacterCreationStage1Fragment.ICreateCharacterStage1Listener, CharacterCreationStage2Fragment.ICreateCharacterStage2Listener,CharacterCreationStage3Fragment.ICreateCharacterStage3Listener,CharacterCreationStage4Fragment.ICreateCharacterStage4Listener, CharacterCreationStage5Fragment.ICreateCharacterStage5Listener, CharacterCreationStage6Fragment.ICreateCharacterStage6Listener, CharacterCreationStage7Fragment.ICreateCharacterStage7Listener, CharacterCreationStage8Fragment.ICreateCharacterStage8Listener{
+public class CharacterActivity extends AppCompatActivity implements CharacterFragment.ICreateCharacterListener, CharacterCreationStage1Fragment.ICreateCharacterStage1Listener, CharacterCreationStage2Fragment.ICreateCharacterStage2Listener,CharacterCreationStage3Fragment.ICreateCharacterStage3Listener,CharacterCreationStage4Fragment.ICreateCharacterStage4Listener, CharacterCreationStage5Fragment.ICreateCharacterStage5Listener, CharacterCreationStage6Fragment.ICreateCharacterStage6Listener, CharacterCreationStage7Fragment.ICreateCharacterStage7Listener, CharacterCreationStage8Fragment.ICreateCharacterStage8Listener, CharacterCreationStage9Fragment.ICreateCharacterStage9Listener, CharacterCreationStage10Fragment.ICreateCharacterStage10Listener{
 
 
     @Override
@@ -20,7 +21,7 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
 
 
 
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView2, CharacterFragment.newInstance("",""), "fragment").commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView2, CharacterFragment.newInstance("",""), "fragment").addToBackStack(null).commit();
     }
 
 
@@ -28,6 +29,12 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     @Override
     public void newCharacter() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage1Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    }
+
+    @Override
+    public void backToCharacterActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -115,5 +122,25 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     @Override
     public void toStage9() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage9Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    }
+
+    @Override
+    public void backFromStage9() {
+        getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void toStage10() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage10Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    }
+
+    @Override
+    public void backFromStage10() {
+        getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void createCharacter() {
+
     }
 }

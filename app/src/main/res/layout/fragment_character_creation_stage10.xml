@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DC4439"
+    tools:context=".CharacterCreationStage10Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/guide11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Character Biography"
+        android:layout_below="@+id/guide11"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:layout_below="@id/textView68"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/buttonBackStage10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guide11"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="500dp"
+        android:backgroundTint="#EFB644"
+        android:text="Back"
+        android:textColor="#292323" />
+
+    <Button
+        android:id="@+id/buttonCreateStage10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:layout_below="@+id/guide11"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="500dp"
+        android:backgroundTint="#EFB644"
+        android:textColor="#292323"/>
+
+</RelativeLayout>

@@ -76,6 +76,7 @@ public class CharacterFragment extends Fragment {
         }
     }
     Button CreateNewButton;
+    Button Back;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -94,12 +95,20 @@ public class CharacterFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         CreateNewButton = view.findViewById(R.id.CreateNewButton);
+        Back = view.findViewById(R.id.buttonBackFirst);
 
 
         CreateNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreateCharacterListener.newCharacter();
+            }
+        });
+
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CreateCharacterListener.backToCharacterActivity();
             }
         });
 
@@ -123,5 +132,6 @@ public class CharacterFragment extends Fragment {
 
     public interface ICreateCharacterListener{
         void newCharacter();
+        void backToCharacterActivity();
     }
 }

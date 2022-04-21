@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener, ContactFragment.IContactListener, CharacterFragment.ICreateCharacterListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener, ContactFragment.IContactListener {
     //Purpose and todos. Updated: 2/18/2022
     //Landing screen, leads to other functions of the app.
 
@@ -225,8 +225,5 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
         getSupportFragmentManager().popBackStack();
     }
 
-    @Override
-    public void newCharacter() {
 
-    }
 }
