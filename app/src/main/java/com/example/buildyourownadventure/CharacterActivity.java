@@ -43,8 +43,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage2() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage2Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage2(String s, String p, String o, String n, int g) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage2Fragment.newInstance(s,p, o, n, g), "fragment").addToBackStack(null).commit();
 
     }
 

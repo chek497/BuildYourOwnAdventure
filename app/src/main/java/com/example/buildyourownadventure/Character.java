@@ -3,6 +3,10 @@ package com.example.buildyourownadventure;
 import java.io.Serializable;
 
 public class Character implements Serializable {
+
+
+
+
     String name;
     String characterClass;
     String background;
@@ -77,6 +81,13 @@ public class Character implements Serializable {
     int successes;  /*Saves*/
 
 
+
+
+
+
+
+
+
     public String getName() {
         return name;
     }
@@ -101,9 +112,16 @@ public class Character implements Serializable {
         this.race = race;
     }
 
+
+
     public Character(String name, String characterClass, String race) {
         this.name = name;
         this.characterClass = characterClass;
         this.race = race;
     }
+    public Character() {
+
+    }
+
+
 }

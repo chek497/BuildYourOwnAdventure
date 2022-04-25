@@ -10,6 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +23,9 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class CharacterCreationStage1Fragment extends Fragment {
+
+    ArrayList<Character> character = new ArrayList<>();
+    Character newC = new Character();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,8 +66,18 @@ public class CharacterCreationStage1Fragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     Button buttonBack;
     Button buttonNext1;
+    EditText characterName;
+    RadioGroup classNameGroup;
+    RadioButton className;
+    RadioButton characterRace;
+    SeekBar characterLevel;
+    EditText characterBackground;
+    RadioGroup characterRaceGroup;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,20 +87,47 @@ public class CharacterCreationStage1Fragment extends Fragment {
 
         buttonBack = view.findViewById(R.id.buttonBack1);
         buttonNext1 = view.findViewById(R.id.buttonNext1);
+        characterName = view.findViewById(R.id.editTextTextPersonName);
+        classNameGroup = view.findViewById(R.id.RadioGroupClasses);
+        characterLevel = view.findViewById(R.id.seekBar);
+        characterBackground = view.findViewById(R.id.editTextTextPersonName2);
+        characterRaceGroup = view.findViewById(R.id.radioGroupRace);
+
 
 
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 CreateCharacterStage1Listener.backFromStage1();
             }
         });
 
+
+        classNameGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int groupint = classNameGroup.getCheckedRadioButtonId();
+                className = view.findViewById(groupint);
+            }
+        });
+
+
+        characterRaceGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int groupint2 = characterRaceGroup.getCheckedRadioButtonId();
+                characterRace = view.findViewById(groupint2);
+            }
+        });
+
+
         buttonNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateCharacterStage1Listener.toStage2();
+
+                CreateCharacterStage1Listener.toStage2(characterName.getText().toString(), className.getText().toString(), characterRace.getText().toString(), characterBackground.getText().toString(), characterLevel.getProgress());
             }
         });
 
@@ -90,6 +136,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
 
         return view;
     }
+    
 
     ICreateCharacterStage1Listener CreateCharacterStage1Listener;
 
@@ -104,8 +151,9 @@ public class CharacterCreationStage1Fragment extends Fragment {
         }
     }
 
+
     public interface ICreateCharacterStage1Listener{
         void backFromStage1();
-        void toStage2();
+        void toStage2(String s, String p, String o, String n, int g);
     }
 }

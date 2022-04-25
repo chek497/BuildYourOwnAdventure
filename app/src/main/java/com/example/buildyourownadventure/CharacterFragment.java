@@ -25,7 +25,6 @@ public class CharacterFragment extends Fragment {
 
     ArrayList<Character> character = new ArrayList<>();
 
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -85,7 +84,7 @@ public class CharacterFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_character, container, false);
 
         // Just a place holder character//
-        character.add(new Character("Giga", "Chad", "Sigma"));
+
 
 
         recyclerView = view.findViewById(R.id.CharacterRecyclerView);
