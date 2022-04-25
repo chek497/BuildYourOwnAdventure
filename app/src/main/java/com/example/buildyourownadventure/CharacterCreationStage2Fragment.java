@@ -30,13 +30,10 @@ public class CharacterCreationStage2Fragment extends Fragment {
     private static final String ARG_PARAM3 = "param3";
     private static final String ARG_PARAM4 = "param4";
     private static final String ARG_PARAM5 = "param5";
+    private static final String ARG_PARAM6 = "param6";
 
     // TODO: Rename and change types of parameters
-    private String cName;
-    private String cClass;
-    private String cRace;
-    private String cBackground;
-    private int cLevel;
+    private Character c;
 
     public CharacterCreationStage2Fragment() {
         // Required empty public constructor
@@ -46,19 +43,15 @@ public class CharacterCreationStage2Fragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     *
      * @return A new instance of fragment CharacterCreationStage2Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CharacterCreationStage2Fragment newInstance(String param1, String param2, String param3, String param4, int param5) {
+    public static CharacterCreationStage2Fragment newInstance(Character c) {
         CharacterCreationStage2Fragment fragment = new CharacterCreationStage2Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        args.putString(ARG_PARAM3, param3);
-        args.putString(ARG_PARAM4, param4);
-        args.putInt(ARG_PARAM5, param5);
+
+        args.putSerializable(ARG_PARAM6, c);
 
         fragment.setArguments(args);
         return fragment;
@@ -68,16 +61,14 @@ public class CharacterCreationStage2Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            cName = getArguments().getString(ARG_PARAM1);
-            cClass = getArguments().getString(ARG_PARAM2);
-            cRace = getArguments().getString(ARG_PARAM3);
-            cBackground = getArguments().getString(ARG_PARAM4);
-            cLevel = getArguments().getInt(ARG_PARAM5);
+
+            c = (Character) getArguments().getSerializable(ARG_PARAM6);
         }
     }
     Button buttonBack2;
     Button buttonNext2;
     EditText xp;
+    EditText inspiration;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,11 +78,9 @@ public class CharacterCreationStage2Fragment extends Fragment {
         buttonBack2 = view.findViewById(R.id.buttonBack2);
         buttonNext2 = view.findViewById(R.id.buttonNext2);
         xp = view.findViewById(R.id.editTextTextXP);
+        inspiration = view.findViewById(R.id.editTextNumberInsperation);
 
-        //TEMP//
-        xp.setText(cName);
-
-
+        
 
 
         buttonBack2.setOnClickListener(new View.OnClickListener() {

@@ -25,6 +25,7 @@ public class Character implements Serializable {
 
 
 
+    int level;
     int experiencePoints;
     int inspiration;
     int proficiencyBonus;
@@ -112,7 +113,21 @@ public class Character implements Serializable {
         this.race = race;
     }
 
+    public String getBackground() {
+        return background;
+    }
 
+    public void setBackground(String background) {
+        this.background = background;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public Character(String name, String characterClass, String race) {
         this.name = name;

@@ -161,11 +161,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView28"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Enter Inspiration"
-        android:inputType="number"
-        android:layout_centerInParent="true"/>
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberProficiencyBonus"

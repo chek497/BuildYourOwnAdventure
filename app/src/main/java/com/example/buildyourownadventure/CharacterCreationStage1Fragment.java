@@ -127,7 +127,13 @@ public class CharacterCreationStage1Fragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                CreateCharacterStage1Listener.toStage2(characterName.getText().toString(), className.getText().toString(), characterRace.getText().toString(), characterBackground.getText().toString(), characterLevel.getProgress());
+                newC.setName(characterName.getText().toString());
+                newC.setCharacterClass(className.getText().toString());
+                newC.setRace(characterRace.getText().toString());
+                newC.setBackground(characterBackground.getText().toString());
+                newC.setLevel(characterLevel.getProgress());
+
+                CreateCharacterStage1Listener.toStage2(newC);
             }
         });
 
@@ -136,7 +142,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
 
         return view;
     }
-    
+
 
     ICreateCharacterStage1Listener CreateCharacterStage1Listener;
 
@@ -154,6 +160,6 @@ public class CharacterCreationStage1Fragment extends Fragment {
 
     public interface ICreateCharacterStage1Listener{
         void backFromStage1();
-        void toStage2(String s, String p, String o, String n, int g);
+        void toStage2(Character c);
     }
 }
