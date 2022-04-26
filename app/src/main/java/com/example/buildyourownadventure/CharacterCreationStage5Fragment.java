@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,14 +55,18 @@ public class CharacterCreationStage5Fragment extends Fragment {
     }
     Button buttonBack5;
     Button buttonNext5;
+    RadioGroup skillGroup;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_character_creation_stage5, container, false);
+
         buttonBack5 = view.findViewById(R.id.buttonBack5);
         buttonNext5 = view.findViewById(R.id.buttonNext5);
+
+        skillGroup = view.findViewById(R.id.RadioGroupSkills);
 
         buttonBack5.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +58,19 @@ public class CharacterCreationStage4Fragment extends Fragment {
     Button buttonBack4;
     Button buttonNext4;
 
+    Switch switchS;
+    Switch switchD;
+    Switch switchC;
+    Switch switchI;
+    Switch switchW;
+    Switch switchCh;
+
+    EditText PW;
+
+    TextView speed;
+    TextView HD;
+    TextView CHP;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,6 +79,24 @@ public class CharacterCreationStage4Fragment extends Fragment {
 
         buttonBack4 = view.findViewById(R.id.buttonBack4);
         buttonNext4 = view.findViewById(R.id.buttonNext4);
+
+        switchS = view.findViewById(R.id.switchStrength);
+        switchD = view.findViewById(R.id.switchDexterity);
+        switchC = view.findViewById(R.id.switchConstitution);
+        switchI = view.findViewById(R.id.switchIntelligence);
+        switchW = view.findViewById(R.id.switchWisdom);
+        switchCh = view.findViewById(R.id.switchCharisma);
+
+        PW = view.findViewById(R.id.editTextNumberWisdom);
+
+        speed = view.findViewById(R.id.textView38);
+        HD = view.findViewById(R.id.textView40);
+        CHP = view.findViewById(R.id.textView42);
+
+
+
+
+
 
         buttonBack4.setOnClickListener(new View.OnClickListener() {
             @Override

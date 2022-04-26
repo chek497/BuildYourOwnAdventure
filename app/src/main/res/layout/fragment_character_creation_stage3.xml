@@ -51,10 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewConstitution"
         android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
         android:text="Intelligence"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="60dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewWisdom"
@@ -73,10 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewWisdom"
         android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
         android:text="Charisma"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="60dp"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextNumberStrength1"
@@ -95,14 +95,15 @@
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
+
     <EditText
         android:id="@+id/editTextNumberDexterity1"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:ems="10"
-        android:inputType="number"
         android:layout_below="@+id/textViewDexterity"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberDexterity2"
@@ -112,14 +113,15 @@
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
+
     <EditText
         android:id="@+id/editTextNumberConstitution1"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:ems="10"
-        android:inputType="number"
         android:layout_below="@+id/textViewConstitution"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberConstitution2"
@@ -147,14 +149,15 @@
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
+
     <EditText
         android:id="@+id/editTextNumberWisdom1"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:ems="10"
-        android:inputType="number"
         android:layout_below="@+id/textViewWisdom"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberWisdom2"

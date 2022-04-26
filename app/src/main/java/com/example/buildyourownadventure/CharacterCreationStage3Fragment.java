@@ -58,7 +58,28 @@ public class CharacterCreationStage3Fragment extends Fragment {
     }
     Button buttonBack3;
     Button buttonNext3;
+
     EditText strength1;
+    EditText strength2;
+
+    EditText Dexterity1;
+    EditText Dexterity2;
+
+    EditText Constitution1;
+    EditText Constitution2;
+
+    EditText Intelligence1;
+    EditText Intelligence2;
+
+    EditText Wisdom1;
+    EditText Wisdom2;
+
+    EditText Charisma1;
+    EditText Charisma2;
+
+
+
+
 
 
     @Override
@@ -69,7 +90,25 @@ public class CharacterCreationStage3Fragment extends Fragment {
 
         buttonBack3 = view.findViewById(R.id.buttonBack3);
         buttonNext3 = view.findViewById(R.id.buttonNext3);
+
         strength1 = view.findViewById(R.id.editTextNumberStrength1);
+        strength2 = view.findViewById(R.id.editTextNumberStrength2);
+
+        Dexterity1 = view.findViewById(R.id.editTextNumberDexterity1);
+        Dexterity2 = view.findViewById(R.id.editTextNumberDexterity2);
+
+        Constitution1 = view.findViewById(R.id.editTextNumberConstitution1);
+        Constitution2 = view.findViewById(R.id.editTextNumberConstitution2);
+
+        Intelligence1 = view.findViewById(R.id.editTextNumberIntelligence1);
+        Intelligence2 = view.findViewById(R.id.editTextNumberIntelligence2);
+
+        Wisdom1 = view.findViewById(R.id.editTextNumberWisdom1);
+        Wisdom2 = view.findViewById(R.id.editTextNumberWisdom2);
+
+        Charisma1 = view.findViewById(R.id.editTextNumberCharisma1);
+        Charisma2 = view.findViewById(R.id.editTextNumberCharisma2);
+
 
 
 

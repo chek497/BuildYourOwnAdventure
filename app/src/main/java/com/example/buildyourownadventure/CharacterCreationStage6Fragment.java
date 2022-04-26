@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,16 +54,28 @@ public class CharacterCreationStage6Fragment extends Fragment {
 
         }
     }
+
     Button backButton;
     Button nextButton;
+    Button standard;
+    Button custom;
+
+    TextView armorClass;
+    TextView initiative;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_character_creation_stage6, container, false);
+
         backButton = view.findViewById(R.id.buttonBack6);
         nextButton = view.findViewById(R.id.buttonNext6);
+        standard = view.findViewById(R.id.buttonStandard);
+        custom = view.findViewById(R.id.buttonCustom);
+
+        armorClass = view.findViewById(R.id.textView46);
+        initiative = view.findViewById(R.id.textView48);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

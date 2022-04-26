@@ -52,6 +52,7 @@ public class CharacterCreationStage7Fragment extends Fragment {
             c = (Character) getArguments().getSerializable(ARG_PARAM1);
         }
     }
+
     Button backButton7;
     Button nextButton7;
 
