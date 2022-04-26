@@ -25,11 +25,7 @@ public class CharacterCreationStage2Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    private static final String ARG_PARAM3 = "param3";
-    private static final String ARG_PARAM4 = "param4";
-    private static final String ARG_PARAM5 = "param5";
+
     private static final String ARG_PARAM6 = "param6";
 
     // TODO: Rename and change types of parameters
@@ -80,7 +76,7 @@ public class CharacterCreationStage2Fragment extends Fragment {
         xp = view.findViewById(R.id.editTextTextXP);
         inspiration = view.findViewById(R.id.editTextNumberInsperation);
 
-        
+
 
 
         buttonBack2.setOnClickListener(new View.OnClickListener() {
