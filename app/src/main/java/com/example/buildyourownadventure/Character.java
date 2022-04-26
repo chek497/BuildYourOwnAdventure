@@ -10,8 +10,12 @@ public class Character implements Serializable {
     String name;
     String characterClass;
     String background;
+
     String race;
+    String subRace;
+
     String alignment;
+    String hitDice;
     String[] skills;
     String[][][] toolProficiencies;
     String[][][] attacksSpells;
@@ -35,7 +39,6 @@ public class Character implements Serializable {
     int speed;
     int currentHitPoints;
     int tempHitPoints;
-    int hitDice;
     int bardicInspiration;
     int otherResource;
     int strength;
@@ -160,6 +163,30 @@ public class Character implements Serializable {
 
     public void setProficiencyBonus(int proficiencyBonus) {
         this.proficiencyBonus = proficiencyBonus;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public String getSubRace() {
+        return subRace;
+    }
+
+    public void setSubRace(String subRace) {
+        this.subRace = subRace;
+    }
+
+    public String getHitDice() {
+        return hitDice;
+    }
+
+    public void setHitDice(String hitDice) {
+        this.hitDice = hitDice;
     }
 
     public Character(String name, String characterClass, String race) {

@@ -95,6 +95,7 @@ public class CharacterCreationStage2Fragment extends Fragment {
 
 
 
+
         buttonBack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

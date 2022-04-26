@@ -95,6 +95,34 @@ public class CharacterCreationStage4Fragment extends Fragment {
 
 
 
+        // DETERMINE THE SPEED OF THE CHARACTER BASED ON THE RACE SELECTED based off of info found on roll20.net //
+
+        if(c.getRace().contains("Dragon") || c.getRace().contains("Elf") || c.getRace().contains("Half-Elf") ||c.getRace().contains("Half-Orc") || c.getRace().contains("Human")|| c.getRace().contains("Tiefling")){
+            speed.setText("30");
+            c.setSpeed(Integer.parseInt("30"));
+        }else{
+            speed.setText("25");
+            c.setSpeed(Integer.parseInt("25"));
+        }
+
+
+
+        // DETERMINE HIT DICE BASED ON CLASS //
+        if(c.getCharacterClass().contains("Monk") || c.getCharacterClass().contains("Bard") ||c.getCharacterClass().contains("Cleric") ||c.getCharacterClass().contains("Druid") ||c.getCharacterClass().contains("Rogue") ||c.getCharacterClass().contains("Warlock")){
+            HD.setText("1d8");
+            c.setHitDice("1d8");
+        }else if (c.getCharacterClass().contains("Barbarian")){
+            HD.setText("1d12");
+            c.setHitDice("1d12");
+        }else if(c.getCharacterClass().contains("Fighter") ||c.getCharacterClass().contains("Paladin") ||c.getCharacterClass().contains("Ranger")) {
+            HD.setText("1d10");
+            c.setHitDice("1d10");
+        }else{
+            HD.setText("1d6");
+            c.setHitDice("1d6");
+        }
+
+
 
 
 

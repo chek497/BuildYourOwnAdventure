@@ -59,7 +59,7 @@
             android:text="Deception" />
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/radioButtonHistory"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="History" />
@@ -71,7 +71,7 @@
             android:text="Insight" />
 
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/radioButtonIntimidation"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Intimidation" />

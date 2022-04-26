@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,7 +57,18 @@ public class CharacterCreationStage5Fragment extends Fragment {
     }
     Button buttonBack5;
     Button buttonNext5;
+
     RadioGroup skillGroup;
+
+    RadioButton skillButton;
+    RadioButton skillButton2;
+    RadioButton intimidation;
+    RadioButton history;
+    RadioButton perception;
+
+    TextView selection;
+
+    int numSkills;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,7 +79,36 @@ public class CharacterCreationStage5Fragment extends Fragment {
         buttonBack5 = view.findViewById(R.id.buttonBack5);
         buttonNext5 = view.findViewById(R.id.buttonNext5);
 
+        selection = view.findViewById(R.id.textView43);
+
         skillGroup = view.findViewById(R.id.RadioGroupSkills);
+
+        intimidation = view.findViewById(R.id.radioButtonIntimidation);
+        history = view.findViewById(R.id.radioButtonHistory);
+        perception = view.findViewById(R.id.radioButton12);
+
+        numSkills = 0;
+
+
+
+
+        if(c.getRace() == "Half-Orc"){
+            intimidation.setChecked(true);
+        }else if (c.getRace() == "Dwarf") {
+            // This is conditional in if the dwarf is doing an intelligence check related to stonework, if so add double proficiency bonus //
+            history.setChecked(true);
+        }else if(c.getRace() == "Half-Elf") {
+            //Skill Versatility: You gain proficiency in two Skills of your choice.//
+            numSkills=numSkills +2;
+        }else if (c.getRace() == "Elf"){
+            // Keen Senses //
+            perception.setChecked(true);
+        }
+
+        selection.setText("Choose"+ numSkills +" From Below");
+
+
+
 
         buttonBack5.setOnClickListener(new View.OnClickListener() {
             @Override

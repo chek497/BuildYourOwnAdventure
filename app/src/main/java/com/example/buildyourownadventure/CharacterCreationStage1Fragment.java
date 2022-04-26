@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -70,12 +72,14 @@ public class CharacterCreationStage1Fragment extends Fragment {
     Button buttonBack;
     Button buttonNext1;
     EditText characterName;
+    TextView subraceText;
     RadioGroup classNameGroup;
     RadioButton className;
     RadioButton characterRace;
     SeekBar characterLevel;
     EditText characterBackground;
     RadioGroup characterRaceGroup;
+    Switch subrace;
 
 
 
@@ -92,6 +96,11 @@ public class CharacterCreationStage1Fragment extends Fragment {
         characterLevel = view.findViewById(R.id.seekBar);
         characterBackground = view.findViewById(R.id.editTextTextPersonName2);
         characterRaceGroup = view.findViewById(R.id.radioGroupRace);
+
+        subraceText = view.findViewById(R.id.textView69);
+
+        subrace = view.findViewById(R.id.switchSubRace);
+        subrace.setVisibility(View.INVISIBLE);
 
 
 
@@ -119,6 +128,21 @@ public class CharacterCreationStage1Fragment extends Fragment {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 int groupint2 = characterRaceGroup.getCheckedRadioButtonId();
                 characterRace = view.findViewById(groupint2);
+
+                // Determine SubRace //
+                subrace.setVisibility(View.VISIBLE);
+
+                subraceText.setText(characterRace.getText().toString() + " Subrace?");
+
+
+
+            }
+        });
+
+        subrace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newC.setSubRace(characterRace.getText().toString()+ " Subrace");
             }
         });
 
