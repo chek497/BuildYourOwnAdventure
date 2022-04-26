@@ -27,9 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView26"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioLawfulGood"
@@ -57,9 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/RadioGroupGood"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioLawfulNeutral"
@@ -87,9 +87,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/RadioGroupNeutral"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioLawfulEvil"
@@ -132,7 +132,7 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Enter XP"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView28"
@@ -172,11 +172,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView29"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Enter Proficiency"
-        android:inputType="number"
-        android:layout_centerInParent="true"/>
+        android:inputType="number" />
 
     <Button
         android:id="@+id/buttonBack2"

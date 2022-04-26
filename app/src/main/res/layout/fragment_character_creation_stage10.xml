@@ -48,12 +48,12 @@
         android:id="@+id/buttonCreateStage10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
         android:layout_below="@+id/guide11"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="500dp"
+        android:layout_marginRight="20dp"
         android:backgroundTint="#EFB644"
-        android:textColor="#292323"/>
+        android:text="Create"
+        android:textColor="#292323" />
 
 </RelativeLayout>

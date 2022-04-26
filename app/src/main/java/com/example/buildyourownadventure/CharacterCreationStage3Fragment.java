@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,11 +23,10 @@ public class CharacterCreationStage3Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Character c;
 
     public CharacterCreationStage3Fragment() {
         // Required empty public constructor
@@ -35,16 +36,14 @@ public class CharacterCreationStage3Fragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     *
      * @return A new instance of fragment CharacterCreationStage3Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CharacterCreationStage3Fragment newInstance(String param1, String param2) {
+    public static CharacterCreationStage3Fragment newInstance(Character c) {
         CharacterCreationStage3Fragment fragment = new CharacterCreationStage3Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(ARG_PARAM1, c);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,12 +52,14 @@ public class CharacterCreationStage3Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            c = (Character) getArguments().getSerializable(ARG_PARAM1);
+
         }
     }
     Button buttonBack3;
     Button buttonNext3;
+    EditText strength1;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +69,9 @@ public class CharacterCreationStage3Fragment extends Fragment {
 
         buttonBack3 = view.findViewById(R.id.buttonBack3);
         buttonNext3 = view.findViewById(R.id.buttonNext3);
+        strength1 = view.findViewById(R.id.editTextNumberStrength1);
+
+
 
         buttonBack3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,10 +79,12 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 CreateCharacterStage3Listener.backFromStage3();
             }
         });
+
         buttonNext3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateCharacterStage3Listener.toStage4();
+
+                CreateCharacterStage3Listener.toStage4(c);
             }
         });
 
@@ -105,6 +111,6 @@ public class CharacterCreationStage3Fragment extends Fragment {
 
     public interface ICreateCharacterStage3Listener{
         void backFromStage3();
-        void toStage4();
+        void toStage4(Character c);
     }
 }

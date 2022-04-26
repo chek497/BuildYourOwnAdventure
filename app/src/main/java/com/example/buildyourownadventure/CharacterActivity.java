@@ -55,8 +55,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage3() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage3Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage3(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage3Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
 
     }
 
@@ -67,8 +67,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage4() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage4Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage4(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage4Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
 
     }
 
@@ -78,8 +78,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage5() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage5Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage5(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage5Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
 
     }
 
@@ -89,8 +89,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage6() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage6Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage6(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage6Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
 
     }
 
@@ -100,8 +100,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage7() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage7Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage7(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage7Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
     }
 
     @Override
@@ -110,8 +110,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage8() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage8Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage8(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage8Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
     }
 
     @Override
@@ -120,8 +120,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage9() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage9Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage9(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage9Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
     }
 
     @Override
@@ -130,8 +130,8 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void toStage10() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage10Fragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+    public void toStage10(Character c) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterCreationStage10Fragment.newInstance(c), "fragment").addToBackStack(null).commit();
     }
 
     @Override
@@ -140,7 +140,7 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
     }
 
     @Override
-    public void createCharacter() {
+    public void createCharacter(Character c) {
 
     }
 }
