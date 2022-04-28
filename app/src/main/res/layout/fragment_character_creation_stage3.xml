@@ -80,8 +80,8 @@
 
     <EditText
         android:id="@+id/editTextNumberStrength1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/textViewStrength"
         android:layout_centerInParent="true"
         android:ems="10"
@@ -89,17 +89,18 @@
 
     <EditText
         android:id="@+id/editTextNumberStrength2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editTextNumberStrength1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textViewStrength"
+        android:layout_toRightOf="@+id/editTextNumberStrength1"
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberDexterity1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/textViewDexterity"
         android:layout_centerInParent="true"
         android:ems="10"
@@ -107,17 +108,18 @@
 
     <EditText
         android:id="@+id/editTextNumberDexterity2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editTextNumberDexterity1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textViewDexterity"
+        android:layout_toRightOf="@+id/editTextNumberDexterity1"
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberConstitution1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/textViewConstitution"
         android:layout_centerInParent="true"
         android:ems="10"
@@ -125,17 +127,18 @@
 
     <EditText
         android:id="@+id/editTextNumberConstitution2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editTextNumberConstitution1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textViewConstitution"
+        android:layout_toRightOf="@+id/editTextNumberConstitution1"
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberIntelligence1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/textViewIntelligence"
         android:layout_centerInParent="true"
         android:ems="10"
@@ -143,17 +146,18 @@
 
     <EditText
         android:id="@+id/editTextNumberIntelligence2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editTextNumberIntelligence1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textViewIntelligence"
+        android:layout_toRightOf="@+id/editTextNumberIntelligence1"
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberWisdom1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/textViewWisdom"
         android:layout_centerInParent="true"
         android:ems="10"
@@ -161,17 +165,18 @@
 
     <EditText
         android:id="@+id/editTextNumberWisdom2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editTextNumberWisdom1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textViewWisdom"
+        android:layout_toRightOf="@+id/editTextNumberWisdom1"
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextNumberCharisma1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/textViewCharisma"
         android:layout_centerInParent="true"
         android:ems="10"
@@ -179,9 +184,10 @@
 
     <EditText
         android:id="@+id/editTextNumberCharisma2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_below="@+id/editTextNumberCharisma1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textViewCharisma"
+        android:layout_toRightOf="@+id/editTextNumberCharisma1"
         android:layout_centerInParent="true"
         android:ems="10"
         android:inputType="number" />
@@ -206,6 +212,66 @@
         android:backgroundTint="#EFB644"
         android:text="Next"
         android:textColor="#292323" />
+
+    <Button
+        android:id="@+id/buttonRoll"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guide4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:text="Roll" />
+
+    <Button
+        android:id="@+id/buttonRoll2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guide4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="125dp"
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:text="Roll" />
+
+    <Button
+        android:id="@+id/buttonRoll3"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Roll"
+        android:layout_below="@+id/guide4"
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:layout_marginTop="215dp"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/buttonRoll4"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Roll"
+        android:layout_below="@+id/guide4"
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/buttonRoll5"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Roll"
+        android:layout_below="@+id/guide4"
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:layout_marginTop="385dp"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/buttonRoll6"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Roll"
+        android:layout_below="@+id/guide4"
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:layout_marginTop="475dp"
+        android:layout_marginLeft="10dp"/>
 
 
 </RelativeLayout>

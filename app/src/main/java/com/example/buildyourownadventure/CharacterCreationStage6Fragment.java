@@ -1,5 +1,7 @@
 package com.example.buildyourownadventure;
 
+import android.app.DownloadManager;
+import android.app.VoiceInteractor;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -11,6 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,6 +72,10 @@ public class CharacterCreationStage6Fragment extends Fragment {
     TextView armorClass;
     TextView initiative;
 
+    RequestQueue requestQueue;
+    String url;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -76,6 +89,22 @@ public class CharacterCreationStage6Fragment extends Fragment {
 
         armorClass = view.findViewById(R.id.textView46);
         initiative = view.findViewById(R.id.textView48);
+
+        requestQueue = Volley.newRequestQueue(view.getContext());
+        url = "https://www.dnd5eapi.co/api/backgrounds/acolyte";
+
+
+
+
+
+        standard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+            }
+        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

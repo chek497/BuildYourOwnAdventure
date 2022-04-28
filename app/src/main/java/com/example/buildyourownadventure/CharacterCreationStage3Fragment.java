@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Random;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CharacterCreationStage3Fragment#newInstance} factory method to
@@ -59,6 +61,15 @@ public class CharacterCreationStage3Fragment extends Fragment {
     Button buttonBack3;
     Button buttonNext3;
 
+    Button buttonRoll;
+    Button buttonRoll2;
+    Button buttonRoll3;
+    Button buttonRoll4;
+    Button buttonRoll5;
+    Button buttonRoll6;
+
+
+
     EditText strength1;
     EditText strength2;
 
@@ -77,8 +88,19 @@ public class CharacterCreationStage3Fragment extends Fragment {
     EditText Charisma1;
     EditText Charisma2;
 
+    int diceTotal;
+
+    int w;
+    int x;
+    int y;
+    int z;
 
 
+
+    public String findTotal(int one, int two, int three){
+        String total = String.valueOf(one+two+three);
+        return total;
+    }
 
 
 
@@ -90,6 +112,13 @@ public class CharacterCreationStage3Fragment extends Fragment {
 
         buttonBack3 = view.findViewById(R.id.buttonBack3);
         buttonNext3 = view.findViewById(R.id.buttonNext3);
+
+        buttonRoll = view.findViewById(R.id.buttonRoll);
+        buttonRoll2 = view.findViewById(R.id.buttonRoll2);
+        buttonRoll3 = view.findViewById(R.id.buttonRoll3);
+        buttonRoll4 = view.findViewById(R.id.buttonRoll4);
+        buttonRoll5 = view.findViewById(R.id.buttonRoll5);
+        buttonRoll6 = view.findViewById(R.id.buttonRoll6);
 
         strength1 = view.findViewById(R.id.editTextNumberStrength1);
         strength2 = view.findViewById(R.id.editTextNumberStrength2);
@@ -109,6 +138,93 @@ public class CharacterCreationStage3Fragment extends Fragment {
         Charisma1 = view.findViewById(R.id.editTextNumberCharisma1);
         Charisma2 = view.findViewById(R.id.editTextNumberCharisma2);
 
+        Random random = new Random();
+        diceTotal = 0;
+
+
+
+
+        buttonRoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                x = random.nextInt(6);
+                y = random.nextInt(6);
+                z = random.nextInt(6);
+
+                strength2.setText(findTotal(x,y,z));
+
+            }
+        });
+
+        buttonRoll2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                x = random.nextInt(6);
+                y = random.nextInt(6);
+                z = random.nextInt(6);
+
+                Dexterity2.setText(findTotal(x,y,z));
+
+            }
+        });
+
+        buttonRoll3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                x = random.nextInt(6);
+                y = random.nextInt(6);
+                z = random.nextInt(6);
+
+                Constitution2.setText(findTotal(x,y,z));
+
+            }
+        });
+
+        buttonRoll4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                x = random.nextInt(6);
+                y = random.nextInt(6);
+                z = random.nextInt(6);
+
+                Intelligence2.setText(findTotal(x,y,z));
+
+            }
+        });
+
+        buttonRoll5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                x = random.nextInt(6);
+                y = random.nextInt(6);
+                z = random.nextInt(6);
+
+                Wisdom2.setText(findTotal(x,y,z));
+
+            }
+        });
+
+        buttonRoll6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                x = random.nextInt(6);
+                y = random.nextInt(6);
+                z = random.nextInt(6);
+
+                Charisma2.setText(findTotal(x,y,z));
+
+            }
+        });
+
+
+
+
 
 
 
@@ -122,6 +238,10 @@ public class CharacterCreationStage3Fragment extends Fragment {
         buttonNext3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                
+                //TODO: add validation for the abiity scores, they can not be over 18. The highest number achievable when rolling four six sided dice and selecting the sum of the 3 highest values. //
 
                 CreateCharacterStage3Listener.toStage4(c);
             }

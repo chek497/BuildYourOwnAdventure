@@ -62,9 +62,25 @@ public class CharacterCreationStage5Fragment extends Fragment {
 
     RadioButton skillButton;
     RadioButton skillButton2;
+
+    RadioButton acrobatics;
+    RadioButton animalHandling;
+    RadioButton arcana;
+    RadioButton athletics;
+    RadioButton deception;
     RadioButton intimidation;
     RadioButton history;
+    RadioButton insight;
+    RadioButton investigation;
+    RadioButton medicine;
+    RadioButton nature;
     RadioButton perception;
+    RadioButton performance;
+    RadioButton persuasion;
+    RadioButton religion;
+    RadioButton sleightOfHand;
+    RadioButton stealth;
+    RadioButton survival;
 
     TextView selection;
 
@@ -86,24 +102,221 @@ public class CharacterCreationStage5Fragment extends Fragment {
         intimidation = view.findViewById(R.id.radioButtonIntimidation);
         history = view.findViewById(R.id.radioButtonHistory);
         perception = view.findViewById(R.id.radioButton12);
+        acrobatics = view.findViewById(R.id.radioButton);
+        animalHandling = view.findViewById(R.id.radioButton2);
+        arcana = view.findViewById(R.id.radioButton3);
+        athletics = view.findViewById(R.id.radioButton4);
+        deception = view.findViewById(R.id.radioButton5);
+        insight = view.findViewById(R.id.radioButton7);
+        investigation = view.findViewById(R.id.radioButton9);
+        medicine = view.findViewById(R.id.radioButton10);
+        nature = view.findViewById(R.id.radioButton11);
+        perception = view.findViewById(R.id.radioButton12);
+        performance = view.findViewById(R.id.radioButton22);
+        persuasion = view.findViewById(R.id.radioButton23);
+        religion = view.findViewById(R.id.radioButton25);
+        sleightOfHand = view.findViewById(R.id.radioButton24);
+        stealth = view.findViewById(R.id.radioButton26);
+        survival = view.findViewById(R.id.radioButton27);
+
 
         numSkills = 0;
 
 
 
 
-        if(c.getRace() == "Half-Orc"){
+        if(c.getRace().contains("Half-Orc")){
             intimidation.setChecked(true);
-        }else if (c.getRace() == "Dwarf") {
+        }else if (c.getRace().contains("Dwarf")) {
             // This is conditional in if the dwarf is doing an intelligence check related to stonework, if so add double proficiency bonus //
             history.setChecked(true);
-        }else if(c.getRace() == "Half-Elf") {
+        }else if(c.getRace().contains("Half-Elf")) {
             //Skill Versatility: You gain proficiency in two Skills of your choice.//
-            numSkills=numSkills +2;
-        }else if (c.getRace() == "Elf"){
+            numSkills = numSkills +2;
+        }else if (c.getRace().contains("Elf")){
             // Keen Senses //
             perception.setChecked(true);
         }
+
+
+        if(c.getCharacterClass().contains("Monk")){
+
+            // If the specified class does not have access to these skills they will be set to invisible. //
+
+            animalHandling.setVisibility(View.INVISIBLE);
+            arcana.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            intimidation.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            perception.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Barbar")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            arcana.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            history.setVisibility(View.INVISIBLE);
+            insight.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            religion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Bard")){
+
+            numSkills = numSkills +3;
+
+        }else if (c.getCharacterClass().contains("Cleric")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            animalHandling.setVisibility(View.INVISIBLE);
+            arcana.setVisibility(View.INVISIBLE);
+            athletics.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            intimidation.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            perception.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Druid")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            athletics.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            history.setVisibility(View.INVISIBLE);
+            intimidation.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Fighter")){
+            arcana.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            religion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Paladin")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            animalHandling.setVisibility(View.INVISIBLE);
+            arcana.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            history.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            perception.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Ranger")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            arcana.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            history.setVisibility(View.INVISIBLE);
+            intimidation.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            religion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +3;
+
+        }else if (c.getCharacterClass().contains("Rogue")){
+            animalHandling.setVisibility(View.INVISIBLE);
+            arcana.setVisibility(View.INVISIBLE);
+            history.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            religion.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +4;
+
+        }else if (c.getCharacterClass().contains("Sorcerer")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            animalHandling.setVisibility(View.INVISIBLE);
+            athletics.setVisibility(View.INVISIBLE);
+            history.setVisibility(View.INVISIBLE);
+            investigation.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            perception.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Warlock")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            animalHandling.setVisibility(View.INVISIBLE);
+            athletics.setVisibility(View.INVISIBLE);
+            insight.setVisibility(View.INVISIBLE);
+            medicine.setVisibility(View.INVISIBLE);
+            perception.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }else if (c.getCharacterClass().contains("Wizard")){
+            acrobatics.setVisibility(View.INVISIBLE);
+            animalHandling.setVisibility(View.INVISIBLE);
+            athletics.setVisibility(View.INVISIBLE);
+            deception.setVisibility(View.INVISIBLE);
+            intimidation.setVisibility(View.INVISIBLE);
+            nature.setVisibility(View.INVISIBLE);
+            perception.setVisibility(View.INVISIBLE);
+            performance.setVisibility(View.INVISIBLE);
+            persuasion.setVisibility(View.INVISIBLE);
+            sleightOfHand.setVisibility(View.INVISIBLE);
+            stealth.setVisibility(View.INVISIBLE);
+            survival.setVisibility(View.INVISIBLE);
+
+            numSkills = numSkills +2;
+
+        }
+
+
+
+
+
 
         selection.setText("Choose"+ numSkills +" From Below");
 

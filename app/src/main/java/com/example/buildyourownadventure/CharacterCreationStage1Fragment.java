@@ -132,7 +132,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
                 // Determine SubRace //
                 subrace.setVisibility(View.VISIBLE);
 
-                subraceText.setText(characterRace.getText().toString() + " Subrace?");
+                subraceText.setText("Acolyte subrace?");
 
 
 
@@ -142,7 +142,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
         subrace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newC.setSubRace(characterRace.getText().toString()+ " Subrace");
+                newC.setSubRace("Acolyte");
             }
         });
 

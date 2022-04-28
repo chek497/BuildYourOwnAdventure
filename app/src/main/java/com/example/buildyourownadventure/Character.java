@@ -20,7 +20,10 @@ public class Character implements Serializable {
     String[][][] toolProficiencies;
     String[][][] attacksSpells;
     String[][] typeProficiency;
+
+    String[] equipment;
     String[][][] equipmentWeight;
+
     String personalityTraits;
     String ideals;
     String bonds;
