@@ -12,11 +12,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener,
         DashboardFragment.IDashboardListener, ContactFragment.IContactListener,
         CharacterFragment.ICreateCharacterListener, CalculatorFragment.ICalculatorListener {
-    //Purpose and todos. Updated: 2/18/2022
-    //Landing screen, leads to other functions of the app.
 
     //FirebaseAuth object variable
     FirebaseAuth mAuth;
+
     final String TAG = "demo"; //For Logging and Testing Purposes
 
     //Following keys for starting and identifying Fragments
@@ -179,6 +178,12 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     }
 
     @Override
+    public void startGridMap() {
+        //Added in branch RoutingHotFix
+        //Please check @Kareem
+    }
+
+    @Override
     public void startSounds() {
         Intent intentSounds = new Intent(MainActivity.this, BgMusicActivity.class);
         startActivity(intentSounds);
@@ -209,7 +214,16 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void newCharacter() {
+        //TODO
+        //Added in branch RoutingHotFix
+        //Please check @Brandon
+    }
 
+    @Override
+    public void backToCharacterActivity() {
+        //TODO
+        //Added in branch RoutingHotFix
+        //Please check @Brandon
     }
 
     @Override
