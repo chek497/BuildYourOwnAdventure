@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalculatorFragment extends Fragment {
 
@@ -30,7 +32,10 @@ public class CalculatorFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    EditText numberValue;
+    EditText numberValue1;
+    EditText numberValue2;
+    TextView operatorLabel;
+    TextView resultLabel;
     Button zeroButton;
     Button oneButton;
     Button twoButton;
@@ -42,15 +47,13 @@ public class CalculatorFragment extends Fragment {
     Button eightButton;
     Button nineButton;
     Button addButton;
-    Button subractButton;
+    Button subtractButton;
     Button divideButton;
     Button multiplyButton;
     Button dotButton;
+    Button clearButton;
     Button equalsButton;
-    Button leftParenthesesButton;
-    Button rightParenthesesButton;
     Button modulusButton;
-    Button exponentButton;
     Button backToDashboardButton;
 
     @Override
@@ -60,7 +63,10 @@ public class CalculatorFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_calculator, container, false);
         getActivity().setTitle("Calculator");
 
-        numberValue = view.findViewById(R.id.numberValue);
+        numberValue1 = view.findViewById(R.id.numberValue1);
+        numberValue2 = view.findViewById(R.id.numberValue2);
+        operatorLabel = view.findViewById(R.id.operatorLabel);
+        resultLabel = view.findViewById(R.id.resultLabel);
         zeroButton = view.findViewById(R.id.zeroButton);
         oneButton = view.findViewById(R.id.oneButton);
         twoButton = view.findViewById(R.id.twoButton);
@@ -72,170 +78,177 @@ public class CalculatorFragment extends Fragment {
         eightButton = view.findViewById(R.id.eightButton);
         nineButton = view.findViewById(R.id.nineButton);
         addButton = view.findViewById(R.id.addButton);
-        subractButton = view.findViewById(R.id.subtractButton);
+        subtractButton = view.findViewById(R.id.subtractButton);
         divideButton = view.findViewById(R.id.divideButton);
         multiplyButton = view.findViewById(R.id.multiplyButton);
         dotButton = view.findViewById(R.id.dotButton);
+        clearButton = view.findViewById(R.id.clearButton);
         equalsButton = view.findViewById(R.id.equalsButton);
-        leftParenthesesButton = view.findViewById(R.id.leftParenthesesButton);
-        rightParenthesesButton = view.findViewById(R.id.rightParenthesesButton);
         modulusButton = view.findViewById(R.id.modulusButton);
-        exponentButton = view.findViewById(R.id.exponentButton);
         backToDashboardButton = view.findViewById(R.id.backToDashboardButton);
 
-        numberValue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        /*
+        All number buttons 0-9 will check the following:
+        If editText numberValue1 is empty, put # into numberValue1
+        Else put # into editText numberValue2
+         */
 
+        zeroButton.setOnClickListener(viewZero -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("0");
+            } else {
+                numberValue2.setText("0");
             }
         });
 
-        zeroButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        oneButton.setOnClickListener(viewOne -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("1");
+            } else {
+                numberValue2.setText("1");
             }
         });
 
-        oneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        twoButton.setOnClickListener(viewTwo -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("2");
+            } else {
+                numberValue2.setText("2");
             }
         });
 
-        twoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        threeButton.setOnClickListener(viewThree -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("3");
+            } else {
+                numberValue2.setText("3");
             }
         });
 
-        threeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        fourButton.setOnClickListener(viewFour -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("4");
+            } else {
+                numberValue2.setText("4");
             }
         });
 
-        fourButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        fiveButton.setOnClickListener(viewFive -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("5");
+            } else {
+                numberValue2.setText("5");
             }
         });
 
-        fiveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        sixButton.setOnClickListener(viewSix -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("6");
+            } else {
+                numberValue2.setText("6");
             }
         });
 
-        sixButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        sevenButton.setOnClickListener(viewSeven -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("7");
+            } else {
+                numberValue2.setText("7");
             }
         });
 
-        sevenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        eightButton.setOnClickListener(viewEight -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("8");
+            } else {
+                numberValue2.setText("8");
             }
         });
 
-        eightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        nineButton.setOnClickListener(viewNine -> {
+            if(numberValue1.getText().toString().isEmpty()) {
+                numberValue1.setText("9");
+            } else {
+                numberValue2.setText("9");
             }
         });
 
-        nineButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        /*
+        All operator buttons will set the text of the TextView operatorLabel to their operator value
+         */
 
-            }
-        });
+        addButton.setOnClickListener(viewAdd -> operatorLabel.setText("+"));
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        subtractButton.setOnClickListener(viewSub -> operatorLabel.setText("-"));
 
-            }
-        });
+        divideButton.setOnClickListener(viewDiv -> operatorLabel.setText("÷"));
 
-        subractButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        multiplyButton.setOnClickListener(viewMultiply -> operatorLabel.setText("*"));
 
-            }
-        });
+        modulusButton.setOnClickListener(viewMod -> operatorLabel.setText("%"));
 
-        divideButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        multiplyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
+        /*
+        //TODO
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+         */
 
-        equalsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //Clear numbers, operator, and result
+        clearButton.setOnClickListener(viewClear -> {
+            numberValue1.setText("");
+            numberValue2.setText("");
+            operatorLabel.setText("");
+            resultLabel.setText("");
+        });
 
+        /*
+         This function will evaluate an expression with the following format:
+         numberValue1 as the first operand
+         numberValue2 as the second operand
+         operatorLabel as the operator
+         The result will be placed into the TextView resultsLabel
+
+         The function will also display Toast messages if numberValue1, numberValue2, or the operator is left empty
+        */
+        equalsButton.setOnClickListener(viewEquals -> {
+            String num1 = numberValue1.getText().toString();
+            String num2 = numberValue2.getText().toString();
+            if(num1.isEmpty()) {
+                Toast.makeText(getContext(), "Enter the first number.", Toast.LENGTH_SHORT).show();
+            } else if (num2.isEmpty()) {
+                Toast.makeText(getContext(), "Enter the second number.", Toast.LENGTH_SHORT).show();
+            } else {
+                String operator = operatorLabel.getText().toString();
+                if (!operator.isEmpty()) {
+                    Double numDouble1 = Double.parseDouble(num1);
+                    Double numDouble2 = Double.parseDouble(num2);
+                    if(operator.equals("+")) {
+                        Double result = numDouble1 + numDouble2;
+                        resultLabel.setText(result.toString());
+                    } else if(operator.equals("-")) {
+                        Double result = numDouble1 - numDouble2;
+                        resultLabel.setText(result.toString());
+                    } else if(operator.equals("*")) {
+                        Double result = numDouble1 * numDouble2;
+                        resultLabel.setText(result.toString());
+                    } else if(operator.equals("÷")) {
+                        Double result = numDouble1 / numDouble2;
+                        resultLabel.setText(result.toString());
+                    } else if(operator.equals("%")) {
+                        Double result = numDouble1 % numDouble2;
+                        resultLabel.setText(result.toString());
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Select one of the operators: +,-,*,÷,%", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        leftParenthesesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        rightParenthesesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        modulusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        exponentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        backToDashboardButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculatorListener.backToDashboard();
-            }
-        });
+        backToDashboardButton.setOnClickListener(viewBack -> calculatorListener.backToDashboard());
 
         return view;
     }
