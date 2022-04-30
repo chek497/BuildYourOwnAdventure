@@ -1,22 +1,17 @@
 package com.example.buildyourownadventure;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener, DashboardFragment.IDashboardListener, ContactFragment.IContactListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener,
+        DashboardFragment.IDashboardListener, ContactFragment.IContactListener,
+        CharacterFragment.ICreateCharacterListener, CalculatorFragment.ICalculatorListener {
     //Purpose and todos. Updated: 2/18/2022
     //Landing screen, leads to other functions of the app.
 
@@ -28,10 +23,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     public static final String LOGIN_KEY = "LOGIN_KEY";
     public static final String USER_KEY = "USER_KEY";
     public static final String REGISTER_KEY = "REGISTER_KEY";
-    public static final String SETTINGS_KEY = "SETTINGS_KEY";
     public static final String CONTACT_KEY = "CONTACT_KEY";
-    public static final String CALCULATOR_KEY = "CALCULATOR_KEY";
-    public static final String LIBRARIES_KEY = "LIBRARIES_KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,8 +134,6 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
                 .addToBackStack(null)
                 .commit();
          */
-        Intent intent = new Intent(this, GridMapActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -154,7 +144,6 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
                 .addToBackStack(null)
                 .commit();
          */
-
     }
 
     @Override
@@ -173,12 +162,10 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void startCalculator() {
-        /*
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, CalculatorFragment.newInstance(null, null), CALCULATOR_KEY)
+                .replace(R.id.rootView, CalculatorFragment.newInstance())
                 .addToBackStack(null)
                 .commit();
-         */
     }
 
     @Override
@@ -195,11 +182,6 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     public void startSounds() {
         Intent intentSounds = new Intent(MainActivity.this, BgMusicActivity.class);
         startActivity(intentSounds);
-    }
-    @Override
-    public void startGridMap() {
-        Intent intentGridMap = new Intent(MainActivity.this, GridMapActivity.class);
-        startActivity(intentGridMap);
     }
 
     @Override
@@ -225,5 +207,13 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
         getSupportFragmentManager().popBackStack();
     }
 
+    @Override
+    public void newCharacter() {
 
+    }
+
+    @Override
+    public void backToDashboard() {
+        getSupportFragmentManager().popBackStack();
+    }
 }
