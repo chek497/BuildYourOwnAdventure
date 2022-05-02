@@ -1,5 +1,7 @@
 package com.example.buildyourownadventure;
 
+import static android.text.TextUtils.isEmpty;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -180,6 +182,11 @@ public class CharacterCreationStage3Fragment extends Fragment {
 
                 Constitution2.setText(findTotal(x,y,z));
 
+                //Need Constitution to determine Current health //
+                Constitution1.setText(findTotal(x,y,z));
+
+                c.setASMConstitution(Integer.parseInt(Constitution2.getText().toString())-10);
+
             }
         });
 
@@ -243,7 +250,20 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 
                 //TODO: add validation for the abiity scores, they can not be over 18. The highest number achievable when rolling four six sided dice and selecting the sum of the 3 highest values. //
 
-                CreateCharacterStage3Listener.toStage4(c);
+                if(isEmpty( strength2.getText().toString())|| isEmpty(Dexterity2.getText().toString()) || isEmpty(Constitution2.getText().toString()) || isEmpty(Intelligence2.getText().toString()) || isEmpty(Wisdom2.getText().toString()) || isEmpty(Charisma2.getText().toString())){
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(view.getContext(), "All Characteristics must be filled", duration);
+                    toast.show();
+                }else {
+                    c.setStrength(Integer.parseInt(strength2.getText().toString()));
+                    c.setDexterity(Integer.parseInt(Dexterity2.getText().toString()));
+                    c.setConstitution(Integer.parseInt(Constitution2.getText().toString()));
+                    c.setIntelligence(Integer.parseInt(Intelligence2.getText().toString()));
+                    c.setWisdom(Integer.parseInt(Wisdom2.getText().toString()));
+                    c.setCharisma(Integer.parseInt(Charisma2.getText().toString()));
+
+                    CreateCharacterStage3Listener.toStage4(c);
+                }
             }
         });
 

@@ -89,18 +89,18 @@
             android:text="Fighter" />
 
         <RadioButton
-            android:id="@+id/radioButtonMonk"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
-            android:layout_marginBottom="2dp"
-            android:text="Monk" />
-
-        <RadioButton
             android:id="@+id/radioButtonPaladin"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:layout_marginBottom="2dp"
             android:text="Paladin" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMonk"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginBottom="2dp"
+            android:text="Monk" />
 
         <RadioButton
             android:id="@+id/radioButtonRanger"

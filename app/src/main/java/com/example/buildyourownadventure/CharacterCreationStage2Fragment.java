@@ -1,5 +1,7 @@
 package com.example.buildyourownadventure;
 
+import static android.text.TextUtils.isEmpty;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -76,6 +78,8 @@ public class CharacterCreationStage2Fragment extends Fragment {
     RadioGroup evilGroup;
     RadioButton evilButton;
 
+    String hold;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -109,6 +113,7 @@ public class CharacterCreationStage2Fragment extends Fragment {
                 int gg = goodGroup.getCheckedRadioButtonId();
                 goodButton = view.findViewById(gg);
                 c.setAlignment(goodButton.getText().toString());
+                hold = goodButton.getText().toString();
             }
         });
         neutralGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -117,6 +122,7 @@ public class CharacterCreationStage2Fragment extends Fragment {
                 int ng = neutralGroup.getCheckedRadioButtonId();
                 neutralButton = view.findViewById(ng);
                 c.setAlignment(neutralButton.getText().toString());
+                hold = neutralButton.getText().toString();
             }
         });
         evilGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -125,17 +131,26 @@ public class CharacterCreationStage2Fragment extends Fragment {
                 int eg = evilGroup.getCheckedRadioButtonId();
                 evilButton = view.findViewById(eg);
                 c.setAlignment(evilButton.getText().toString());
+                hold = evilButton.getText().toString();
             }
         });
 
         buttonNext2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                c.setExperiencePoints(Integer.parseInt(xp.getText().toString()));
-                c.setInspiration(Integer.parseInt(inspiration.getText().toString()));
-                c.setProficiencyBonus(Integer.parseInt(proficiency.getText().toString()));
 
-                CreateCharacterStage2Listener.toStage3(c);
+                // Validation //
+                if(isEmpty(xp.getText().toString()) || isEmpty(inspiration.getText().toString()) || isEmpty(proficiency.getText().toString()) || isEmpty(hold)){
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(view.getContext(), "All Characteristics must be filled", duration);
+                    toast.show();
+                }else {
+                    c.setExperiencePoints(Integer.parseInt(xp.getText().toString()));
+                    c.setInspiration(Integer.parseInt(inspiration.getText().toString()));
+                    c.setProficiencyBonus(Integer.parseInt(proficiency.getText().toString()));
+
+                    CreateCharacterStage2Listener.toStage3(c);
+                }
             }
         });
 

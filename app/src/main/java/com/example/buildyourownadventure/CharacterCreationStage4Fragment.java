@@ -13,6 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,6 +79,10 @@ public class CharacterCreationStage4Fragment extends Fragment {
     TextView HD;
     TextView CHP;
 
+    String retreive;
+
+    private RequestQueue queue;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,7 +105,33 @@ public class CharacterCreationStage4Fragment extends Fragment {
         HD = view.findViewById(R.id.textView40);
         CHP = view.findViewById(R.id.textView42);
 
+        // Using dnd api, This return ability-score info, but i dont knownhow to parse the info to get the character information i want//
 
+        queue = Volley.newRequestQueue(view.getContext());
+        queue.start();
+
+        String url = "https://www.dnd5eapi.co/api/ability-scores/str";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        retreive = response;
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        queue.add(stringRequest);
+
+        // Using dnd api END//
+
+
+        CHP.setText(c.getASMConstitution());
 
         // DETERMINE THE SPEED OF THE CHARACTER BASED ON THE RACE SELECTED based off of info found on roll20.net //
 
@@ -132,9 +170,13 @@ public class CharacterCreationStage4Fragment extends Fragment {
                 CreateCharacterStage4Listener.backFromStage4();
             }
         });
+
+
         buttonNext4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 CreateCharacterStage4Listener.toStage5(c);
             }
         });

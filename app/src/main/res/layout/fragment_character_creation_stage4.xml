@@ -225,7 +225,7 @@
         android:layout_toRightOf="@id/textView36"
         android:ems="10"
         android:hint="Input"
-        android:inputType="number" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView37"

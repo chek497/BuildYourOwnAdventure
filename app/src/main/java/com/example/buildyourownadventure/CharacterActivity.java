@@ -21,7 +21,7 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
 
 
 
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView2, CharacterFragment.newInstance("",""), "fragment").addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView2, CharacterFragment.newInstance(null), "fragment").addToBackStack(null).commit();
     }
 
 
@@ -141,6 +141,6 @@ public class CharacterActivity extends AppCompatActivity implements CharacterFra
 
     @Override
     public void createCharacter(Character c) {
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView2, CharacterFragment.newInstance(c), "fragment").addToBackStack(null).commit();
     }
 }

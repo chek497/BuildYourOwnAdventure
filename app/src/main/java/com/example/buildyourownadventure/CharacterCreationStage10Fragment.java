@@ -70,6 +70,7 @@ public class CharacterCreationStage10Fragment extends Fragment {
             }
         });
 
+
         createCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

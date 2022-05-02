@@ -130,8 +130,8 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_below="@+id/textViewConstitution"
-        android:layout_toRightOf="@+id/editTextNumberConstitution1"
         android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/editTextNumberConstitution1"
         android:ems="10"
         android:inputType="number" />
 
@@ -237,11 +237,11 @@
         android:id="@+id/buttonRoll3"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="Roll"
         android:layout_below="@+id/guide4"
-        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="215dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_toRightOf="@+id/editTextNumberStrength2"
+        android:text="Roll" />
 
     <Button
         android:id="@+id/buttonRoll4"

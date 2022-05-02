@@ -1,5 +1,7 @@
 package com.example.buildyourownadventure;
 
+import static android.text.TextUtils.isEmpty;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -16,6 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -151,13 +154,20 @@ public class CharacterCreationStage1Fragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                newC.setName(characterName.getText().toString());
-                newC.setCharacterClass(className.getText().toString());
-                newC.setRace(characterRace.getText().toString());
-                newC.setBackground(characterBackground.getText().toString());
-                newC.setLevel(characterLevel.getProgress());
+                // Validation Makes sure all is filled out //
+                if(isEmpty(characterName.getText().toString()) || isEmpty(characterBackground.getText().toString()) || characterLevel.getProgress() == 0 || isEmpty(className.getText().toString()) || isEmpty(characterRace.getText().toString())){
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(view.getContext(), "All Characteristics must be filled", duration);
+                    toast.show();
+                }else {
+                    newC.setName(characterName.getText().toString());
+                    newC.setCharacterClass(className.getText().toString());
+                    newC.setRace(characterRace.getText().toString());
+                    newC.setBackground(characterBackground.getText().toString());
+                    newC.setLevel(characterLevel.getProgress());
 
-                CreateCharacterStage1Listener.toStage2(newC);
+                    CreateCharacterStage1Listener.toStage2(newC);
+                }
             }
         });
 
