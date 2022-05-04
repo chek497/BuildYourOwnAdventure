@@ -181,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
     public void startGridMap() {
         //Added in branch RoutingHotFix
         //Please check @Kareem
+        Intent intentGrid = new Intent(MainActivity.this, GridMapActivity.class);
+        startActivity(intentGrid);
     }
 
     @Override
