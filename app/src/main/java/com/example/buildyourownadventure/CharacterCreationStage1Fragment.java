@@ -1,5 +1,7 @@
 package com.example.buildyourownadventure;
 
+import static android.text.TextUtils.isEmpty;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -10,6 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +28,9 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class CharacterCreationStage1Fragment extends Fragment {
+
+    ArrayList<Character> character = new ArrayList<>();
+    Character newC = new Character();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,8 +71,20 @@ public class CharacterCreationStage1Fragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     Button buttonBack;
     Button buttonNext1;
+    EditText characterName;
+    TextView subraceText;
+    RadioGroup classNameGroup;
+    RadioButton className;
+    RadioButton characterRace;
+    SeekBar characterLevel;
+    EditText characterBackground;
+    RadioGroup characterRaceGroup;
+    Switch subrace;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,20 +94,80 @@ public class CharacterCreationStage1Fragment extends Fragment {
 
         buttonBack = view.findViewById(R.id.buttonBack1);
         buttonNext1 = view.findViewById(R.id.buttonNext1);
+        characterName = view.findViewById(R.id.editTextTextPersonName);
+        classNameGroup = view.findViewById(R.id.RadioGroupClasses);
+        characterLevel = view.findViewById(R.id.seekBar);
+        characterBackground = view.findViewById(R.id.editTextTextPersonName2);
+        characterRaceGroup = view.findViewById(R.id.radioGroupRace);
+
+        subraceText = view.findViewById(R.id.textView69);
+
+        subrace = view.findViewById(R.id.switchSubRace);
+        subrace.setVisibility(View.INVISIBLE);
+
 
 
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 CreateCharacterStage1Listener.backFromStage1();
             }
         });
 
+
+        classNameGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int groupint = classNameGroup.getCheckedRadioButtonId();
+                className = view.findViewById(groupint);
+            }
+        });
+
+
+        characterRaceGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int groupint2 = characterRaceGroup.getCheckedRadioButtonId();
+                characterRace = view.findViewById(groupint2);
+
+                // Determine SubRace //
+                subrace.setVisibility(View.VISIBLE);
+
+                subraceText.setText("Acolyte subrace?");
+
+
+
+            }
+        });
+
+        subrace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newC.setSubRace("Acolyte");
+            }
+        });
+
+
         buttonNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CreateCharacterStage1Listener.toStage2();
+
+                // Validation Makes sure all is filled out //
+                if(isEmpty(characterName.getText().toString()) || isEmpty(characterBackground.getText().toString()) || characterLevel.getProgress() == 0 || isEmpty(className.getText().toString()) || isEmpty(characterRace.getText().toString())){
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(view.getContext(), "All Characteristics must be filled", duration);
+                    toast.show();
+                }else {
+                    newC.setName(characterName.getText().toString());
+                    newC.setCharacterClass(className.getText().toString());
+                    newC.setRace(characterRace.getText().toString());
+                    newC.setBackground(characterBackground.getText().toString());
+                    newC.setLevel(characterLevel.getProgress());
+
+                    CreateCharacterStage1Listener.toStage2(newC);
+                }
             }
         });
 
@@ -90,6 +176,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
 
         return view;
     }
+
 
     ICreateCharacterStage1Listener CreateCharacterStage1Listener;
 
@@ -104,8 +191,9 @@ public class CharacterCreationStage1Fragment extends Fragment {
         }
     }
 
+
     public interface ICreateCharacterStage1Listener{
         void backFromStage1();
-        void toStage2();
+        void toStage2(Character c);
     }
 }

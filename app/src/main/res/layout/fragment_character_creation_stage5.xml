@@ -59,7 +59,7 @@
             android:text="Deception" />
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/radioButtonHistory"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="History" />
@@ -71,7 +71,7 @@
             android:text="Insight" />
 
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/radioButtonIntimidation"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Intimidation" />
@@ -144,20 +144,20 @@
         android:layout_below="@+id/textView43"
         android:layout_marginTop="500dp"
         android:layout_toRightOf="@id/RadioGroupSkills"
-        android:backgroundTint="#EFB644"
         android:text="Back"
-        android:textColor="#292323"/>
+        android:backgroundTint="#EFB644"
+        android:textColor="#292323" />
 
     <Button
         android:id="@+id/buttonNext5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView43"
-        android:layout_toRightOf="@id/buttonBack5"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="500dp"
+        android:layout_toRightOf="@id/buttonBack5"
         android:backgroundTint="#EFB644"
         android:text="Next"
-        android:textColor="#292323"/>
+        android:textColor="#292323" />
 
 </RelativeLayout>

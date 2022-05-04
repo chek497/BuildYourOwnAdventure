@@ -2,25 +2,18 @@ package com.example.buildyourownadventure;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
 
@@ -30,8 +23,6 @@ public class LoginFragment extends Fragment {
     public LoginFragment() {
         // Required empty public constructor
     }
-    public static final String USER_LIST_KEY = "USER_LIST_KEY";
-    public static final String LOGIN_KEY = "LOGIN_KEY";
 
     public static LoginFragment newInstance() {
         LoginFragment fragment = new LoginFragment();
@@ -43,7 +34,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {}
     }
 
     EditText emailValue;
@@ -64,7 +54,7 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        getActivity().setTitle("Home");
+        if(getActivity() != null) { getActivity().setTitle("Home"); }
 
         emailValue = view.findViewById(R.id.emailValue);
         passwordValue = view.findViewById(R.id.passwordValue);
@@ -79,102 +69,56 @@ public class LoginFragment extends Fragment {
         soundsButton = view.findViewById(R.id.soundsButton);
         librariesButton = view.findViewById(R.id.librariesButton);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = emailValue.getText().toString();
-                String password = passwordValue.getText().toString();
+        loginButton.setOnClickListener(viewLogin -> {
+            String email = emailValue.getText().toString();
+            String password = passwordValue.getText().toString();
 
-                if (email.isEmpty()) {
-                    Toast.makeText(getContext(), "Email is required", Toast.LENGTH_SHORT).show();
-                } else if(password.isEmpty()) {
-                    Toast.makeText(getContext(), "Password  is required", Toast.LENGTH_SHORT).show();
+            if (email.isEmpty()) {
+                Toast.makeText(getContext(), "Email is required", Toast.LENGTH_SHORT).show();
+            } else if(password.isEmpty()) {
+                Toast.makeText(getContext(), "Password  is required", Toast.LENGTH_SHORT).show();
+            } else {
+                mAuth = FirebaseAuth.getInstance();
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(getActivity(), task -> {
+                            if (task.isSuccessful()) {
+                                loginListener.successfulLogin();
+                                Log.d(TAG, "onComplete: Logged In Successfully");
+                                Log.d(TAG, "onComplete: " + mAuth.getCurrentUser().getUid());
+                            } else {
+                                String errorMessage = task.getException().getMessage();
+                                loginListener.unsuccessfulLogin(errorMessage);
+                                Log.d(TAG, "onComplete: Error");
+                                Log.d(TAG, "onComplete: " + task.getException().getMessage());
+                            }
+                        });
+            }
+            /*
+            for (int i = 0; i < users.size(); i++) {
+                if (users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
+                    loginListener.successfulLogin(users.get(i));
                 } else {
-                    mAuth = FirebaseAuth.getInstance();
-                    mAuth.signInWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        loginListener.successfulLogin();
-                                        Log.d(TAG, "onComplete: Logged In Successfully");
-                                        Log.d(TAG, "onComplete: " + mAuth.getCurrentUser().getUid());
-                                    } else {
-                                        String errorMessage = task.getException().getMessage();
-                                        loginListener.unsuccessfulLogin(errorMessage);
-                                        Log.d(TAG, "onComplete: Error");
-                                        Log.d(TAG, "onComplete: " + task.getException().getMessage());
-                                    }
-                                }
-                            });
+                    loginListener.unsuccessfulLogin();
                 }
-                /*
-                for (int i = 0; i < users.size(); i++) {
-                    if (users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password)) {
-                        loginListener.successfulLogin(users.get(i));
-                    } else {
-                        loginListener.unsuccessfulLogin();
-                    }
-                }
-                 */
             }
+             */
         });
 
-        startRegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startRegister();
-            }
-        });
+        startRegisterButton.setOnClickListener(viewRegister -> loginListener.startRegister());
 
-        faqButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startFAQ();
-            }
-        });
+        faqButton.setOnClickListener(viewFAQ -> loginListener.startFAQ());
 
-        contactButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startContact();
-            }
-        });
+        contactButton.setOnClickListener(viewContact -> loginListener.startContact());
 
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startSettings();
-            }
-        });
+        settingsButton.setOnClickListener(viewSettings -> loginListener.startSettings());
 
-        calcButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startCalculator();
-            }
-        });
+        calcButton.setOnClickListener(viewCalculator -> loginListener.startCalculator());
 
-        diceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startDice();
-            }
-        });
+        diceButton.setOnClickListener(viewDice -> loginListener.startDice());
 
-        soundsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startSounds();
-            }
-        });
+        soundsButton.setOnClickListener(viewSounds -> loginListener.startSounds());
 
-        librariesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginListener.startLibraries();
-            }
-        });
+        librariesButton.setOnClickListener(viewLibraries -> loginListener.startLibraries());
 
         return view;
     }
@@ -188,7 +132,7 @@ public class LoginFragment extends Fragment {
         if (context instanceof ILoginListener) {
             loginListener = (ILoginListener) context;
         } else {
-            throw new RuntimeException(context.toString() + "must implement ILoginListener");
+            throw new RuntimeException(context + "must implement ILoginListener");
         }
     }
 
