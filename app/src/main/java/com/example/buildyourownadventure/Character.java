@@ -47,6 +47,7 @@ public class Character implements Serializable {
     int otherResource;
 
     // ASM stands for ability score multiplier //
+
     int strength;
     int ASMStrength;
 
@@ -318,6 +319,350 @@ public class Character implements Serializable {
 
     public void setASMCharisma(int ASMCharisma) {
         this.ASMCharisma = ASMCharisma;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String[] getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String[] skills) {
+        this.skills = skills;
+    }
+
+    public String getPersonalityTraits() {
+        return personalityTraits;
+    }
+
+    public void setPersonalityTraits(String personalityTraits) {
+        this.personalityTraits = personalityTraits;
+    }
+
+    public String getIdeals() {
+        return ideals;
+    }
+
+    public void setIdeals(String ideals) {
+        this.ideals = ideals;
+    }
+
+    public String getBonds() {
+        return bonds;
+    }
+
+    public void setBonds(String bonds) {
+        this.bonds = bonds;
+    }
+
+    public String getFlaws() {
+        return flaws;
+    }
+
+    public void setFlaws(String flaws) {
+        this.flaws = flaws;
+    }
+
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public int getInitiative() {
+        return initiative;
+    }
+
+    public void setInitiative(int initiative) {
+        this.initiative = initiative;
+    }
+
+    public int getCurrentHitPoints() {
+        return currentHitPoints;
+    }
+
+    public void setCurrentHitPoints(int currentHitPoints) {
+        this.currentHitPoints = currentHitPoints;
+    }
+
+    public int getTempHitPoints() {
+        return tempHitPoints;
+    }
+
+    public void setTempHitPoints(int tempHitPoints) {
+        this.tempHitPoints = tempHitPoints;
+    }
+
+    public int getBardicInspiration() {
+        return bardicInspiration;
+    }
+
+    public void setBardicInspiration(int bardicInspiration) {
+        this.bardicInspiration = bardicInspiration;
+    }
+
+    public int getOtherResource() {
+        return otherResource;
+    }
+
+    public void setOtherResource(int otherResource) {
+        this.otherResource = otherResource;
+    }
+
+    public int getCopper() {
+        return copper;
+    }
+
+    public void setCopper(int copper) {
+        this.copper = copper;
+    }
+
+    public int getSilver() {
+        return silver;
+    }
+
+    public void setSilver(int silver) {
+        this.silver = silver;
+    }
+
+    public int getElectrum() {
+        return electrum;
+    }
+
+    public void setElectrum(int electrum) {
+        this.electrum = electrum;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public int getPlatinum() {
+        return platinum;
+    }
+
+    public void setPlatinum(int platinum) {
+        this.platinum = platinum;
+    }
+
+    public int getAttributeStrength() {
+        return AttributeStrength;
+    }
+
+    public void setAttributeStrength(int attributeStrength) {
+        AttributeStrength = attributeStrength;
+    }
+
+    public int getAttributeDexterity() {
+        return AttributeDexterity;
+    }
+
+    public void setAttributeDexterity(int attributeDexterity) {
+        AttributeDexterity = attributeDexterity;
+    }
+
+    public int getAttributeConstitution() {
+        return AttributeConstitution;
+    }
+
+    public void setAttributeConstitution(int attributeConstitution) {
+        AttributeConstitution = attributeConstitution;
+    }
+
+    public int getAttributeIntelligence() {
+        return AttributeIntelligence;
+    }
+
+    public void setAttributeIntelligence(int attributeIntelligence) {
+        AttributeIntelligence = attributeIntelligence;
+    }
+
+    public int getAttributeWisdom() {
+        return AttributeWisdom;
+    }
+
+    public void setAttributeWisdom(int attributeWisdom) {
+        AttributeWisdom = attributeWisdom;
+    }
+
+    public int getAttributeCharisma() {
+        return AttributeCharisma;
+    }
+
+    public void setAttributeCharisma(int attributeCharisma) {
+        AttributeCharisma = attributeCharisma;
+    }
+
+    public int getAttributeAcrobatics() {
+        return AttributeAcrobatics;
+    }
+
+    public void setAttributeAcrobatics(int attributeAcrobatics) {
+        AttributeAcrobatics = attributeAcrobatics;
+    }
+
+    public int getAttributeAnimalHandling() {
+        return AttributeAnimalHandling;
+    }
+
+    public void setAttributeAnimalHandling(int attributeAnimalHandling) {
+        AttributeAnimalHandling = attributeAnimalHandling;
+    }
+
+    public int getAttributeArcana() {
+        return AttributeArcana;
+    }
+
+    public void setAttributeArcana(int attributeArcana) {
+        AttributeArcana = attributeArcana;
+    }
+
+    public int getAttributeAthletics() {
+        return AttributeAthletics;
+    }
+
+    public void setAttributeAthletics(int attributeAthletics) {
+        AttributeAthletics = attributeAthletics;
+    }
+
+    public int getAttributeDeception() {
+        return AttributeDeception;
+    }
+
+    public void setAttributeDeception(int attributeDeception) {
+        AttributeDeception = attributeDeception;
+    }
+
+    public int getAttributeHistory() {
+        return AttributeHistory;
+    }
+
+    public void setAttributeHistory(int attributeHistory) {
+        AttributeHistory = attributeHistory;
+    }
+
+    public int getAttributeInsight() {
+        return AttributeInsight;
+    }
+
+    public void setAttributeInsight(int attributeInsight) {
+        AttributeInsight = attributeInsight;
+    }
+
+    public int getAttributeIntimidation() {
+        return AttributeIntimidation;
+    }
+
+    public void setAttributeIntimidation(int attributeIntimidation) {
+        AttributeIntimidation = attributeIntimidation;
+    }
+
+    public int getAttributeInvestigation() {
+        return AttributeInvestigation;
+    }
+
+    public void setAttributeInvestigation(int attributeInvestigation) {
+        AttributeInvestigation = attributeInvestigation;
+    }
+
+    public int getAttributeMedicine() {
+        return AttributeMedicine;
+    }
+
+    public void setAttributeMedicine(int attributeMedicine) {
+        AttributeMedicine = attributeMedicine;
+    }
+
+    public int getAttributeNature() {
+        return AttributeNature;
+    }
+
+    public void setAttributeNature(int attributeNature) {
+        AttributeNature = attributeNature;
+    }
+
+    public int getAttributePerception() {
+        return AttributePerception;
+    }
+
+    public void setAttributePerception(int attributePerception) {
+        AttributePerception = attributePerception;
+    }
+
+    public int getAttributePerformance() {
+        return AttributePerformance;
+    }
+
+    public void setAttributePerformance(int attributePerformance) {
+        AttributePerformance = attributePerformance;
+    }
+
+    public int getAttributePersuasion() {
+        return AttributePersuasion;
+    }
+
+    public void setAttributePersuasion(int attributePersuasion) {
+        AttributePersuasion = attributePersuasion;
+    }
+
+    public int getAttributeReligion() {
+        return AttributeReligion;
+    }
+
+    public void setAttributeReligion(int attributeReligion) {
+        AttributeReligion = attributeReligion;
+    }
+
+    public int getAttributeSleightOfHand() {
+        return AttributeSleightOfHand;
+    }
+
+    public void setAttributeSleightOfHand(int attributeSleightOfHand) {
+        AttributeSleightOfHand = attributeSleightOfHand;
+    }
+
+    public int getAttributeStealth() {
+        return AttributeStealth;
+    }
+
+    public void setAttributeStealth(int attributeStealth) {
+        AttributeStealth = attributeStealth;
+    }
+
+    public int getAttributeSurvival() {
+        return AttributeSurvival;
+    }
+
+    public void setAttributeSurvival(int attributeSurvival) {
+        AttributeSurvival = attributeSurvival;
+    }
+
+    public int getFailures() {
+        return failures;
+    }
+
+    public void setFailures(int failures) {
+        this.failures = failures;
+    }
+
+    public int getSuccesses() {
+        return successes;
+    }
+
+    public void setSuccesses(int successes) {
+        this.successes = successes;
     }
 
     public Character(String name, String characterClass, String race) {

@@ -23,6 +23,7 @@ import java.util.ArrayList;
  */
 public class CharacterFragment extends Fragment {
 
+
     ArrayList<Character> character = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match

@@ -131,7 +131,7 @@ public class CharacterCreationStage4Fragment extends Fragment {
         // Using dnd api END//
 
 
-        CHP.setText(c.getASMConstitution());
+        // CHP.setText(c.getASMConstitution());
 
         // DETERMINE THE SPEED OF THE CHARACTER BASED ON THE RACE SELECTED based off of info found on roll20.net //
 
