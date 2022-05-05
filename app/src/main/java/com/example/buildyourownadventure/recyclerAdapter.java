@@ -1,8 +1,10 @@
 package com.example.buildyourownadventure;
 
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,12 +23,14 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Charac
         private TextView name;
         private TextView Class;
         private TextView race;
+       //public ImageView face;
 
         public CharacterRecyclerView(final View view){
             super(view);
             name = view.findViewById(R.id.textView17);
             Class = view.findViewById(R.id.textView18);
             race = view.findViewById(R.id.textView20);
+            //face = view.findViewById(R.id.imageView3);
         }
     }
 
@@ -42,10 +46,12 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Charac
         String name = character.get(position).getName();
         String Class = character.get(position).getCharacterClass();
         String race = character.get(position).getRace();
+        //Image face = character.get(position).getFace();
 
         holder.name.setText(name);
         holder.Class.setText(Class);
         holder.race.setText(race);
+        //holder.face.setImageResource(position);
     }
 
     @Override

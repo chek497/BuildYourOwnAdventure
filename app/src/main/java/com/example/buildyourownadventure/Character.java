@@ -1,10 +1,13 @@
 package com.example.buildyourownadventure;
 
+import android.media.Image;
+
 import java.io.Serializable;
 
 public class Character implements Serializable {
 
 
+    Image face;
 
     String userId;
 
@@ -663,6 +666,14 @@ public class Character implements Serializable {
 
     public void setSuccesses(int successes) {
         this.successes = successes;
+    }
+
+    public Image getFace() {
+        return face;
+    }
+
+    public void setFace(Image face) {
+        this.face = face;
     }
 
     public Character(String name, String characterClass, String race) {
