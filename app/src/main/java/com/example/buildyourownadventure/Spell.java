@@ -3,11 +3,8 @@ package com.example.buildyourownadventure;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,11 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Monster extends AppCompatActivity {
+public class Spell extends AppCompatActivity {
     List<String> parentList;
-    List<String> actionList;
-    List<String> legendaryList;
-    List<String> specialList;
+    List<String> descList;
+    List<String> classesList;
+    List<String> subClassesList;
     Map<String, List<String>> collection;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
@@ -38,36 +35,36 @@ public class Monster extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        String monster = intent.getStringExtra("monster");
-        String urlMonster = monster.replaceAll(" ", "-").toLowerCase();
-        String url = "https://www.dnd5eapi.co/api/monsters/" + urlMonster;
+        String spell = intent.getStringExtra("spell");
+        String urlSpell = spell.replaceAll(" ", "-").toLowerCase();
+        String url = "https://www.dnd5eapi.co/api/spells/" + urlSpell;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.monsterdetails);
-        setTitle(monster);
+        setTitle(spell);
         parentList = new ArrayList<>();
-        actionList = new ArrayList<>();
-        legendaryList = new ArrayList<>();
-        specialList = new ArrayList<>();
+        descList = new ArrayList<>();
+        classesList = new ArrayList<>();
+        subClassesList = new ArrayList<>();
         collection = new HashMap<>();
 
-        parentList.add("Actions");
-        parentList.add("Legendary Actions");
-        parentList.add("Special Abilities");
+        parentList.add("Description");
+        parentList.add("Classes");
+        parentList.add("Subclasses");
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
         for(String parent: parentList){
             switch(parent){
-                case "Actions":
-                    collection.put(parent, actionList);
+                case "Description":
+                    collection.put(parent, descList);
                     break;
-                case "Legendary Actions":
-                    collection.put(parent, legendaryList);
+                case "Classes":
+                    collection.put(parent, classesList);
                     break;
-                case "Special Abilities":
+                case "Subclasses":
 
-                    collection.put(parent, specialList);
+                    collection.put(parent, subClassesList);
 
                     break;
             }
@@ -84,42 +81,29 @@ public class Monster extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     try {
                         JSONObject jsonObject = new JSONObject(response.body().string());
-                        JSONArray actions = jsonObject.getJSONArray("actions");
-                        JSONArray legendary = jsonObject.getJSONArray("legendary_actions");
-                        JSONArray special = jsonObject.getJSONArray("special_abilities");
+                        JSONArray description = jsonObject.getJSONArray("desc");
+                        JSONArray classes = jsonObject.getJSONArray("classes");
+                        JSONArray subClasses = jsonObject.getJSONArray("subclasses");
 
-                        if(actions.length() != 0) {
-                            for (int i = 0; i < actions.length(); i++) {
-                                JSONObject object = actions.getJSONObject(i);
+                        descList.add(description.get(0).toString());
+                        if(classes.length() != 0) {
+                            for (int i = 0; i < classes.length(); i++) {
+                                JSONObject object = classes.getJSONObject(i);
                                 String name = object.getString("name");
-                                String desc = object.getString("desc");
-                                String child = "Name: " + name + "\n\nDescription\n\n" + desc;
-                                actionList.add(child);
-                            }
-                        }else{
-                            actionList.add("None");
-                        }
-                        if(legendary.length() != 0) {
-                            for (int i = 0; i < legendary.length(); i++) {
-                                JSONObject object = legendary.getJSONObject(i);
-                                String name = object.getString("name");
-                                String desc = object.getString("desc");
-                                String child = "Name: " + name + "\n\nDescription\n\n" + desc;
-                                legendaryList.add(child);
+
+                                classesList.add(name);
                             }
                         } else{
-                            legendaryList.add("None");
+                            classesList.add("None");
                         }
-                        if(special.length() != 0) {
-                            for (int i = 0; i < special.length(); i++) {
-                                JSONObject object = special.getJSONObject(i);
+                        if(subClasses.length() != 0) {
+                            for (int i = 0; i < subClasses.length(); i++) {
+                                JSONObject object = subClasses.getJSONObject(i);
                                 String name = object.getString("name");
-                                String desc = object.getString("desc");
-                                String child = "Name: " + name + "\n\nDescription\n\n" + desc;
-                                specialList.add(child);
+                                subClassesList.add(name);
                             }
                         }else{
-                            specialList.add("None");
+                            subClassesList.add("None");
                         }
                         runOnUiThread(new Runnable() {
 
@@ -128,7 +112,7 @@ public class Monster extends AppCompatActivity {
 
                                 // Stuff that updates the UI
 
-                                expandableListAdapter = new MyExpandableListAdapter(Monster.this, parentList, collection);
+                                expandableListAdapter = new MyExpandableListAdapter(Spell.this, parentList, collection);
                                 expandableListView = findViewById(R.id.details);
                                 expandableListView.setAdapter(expandableListAdapter);
                                 expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
