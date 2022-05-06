@@ -1,8 +1,11 @@
 package com.example.buildyourownadventure;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements LoginFragment.ILoginListener, RegisterFragment.IRegisterListener,
         DashboardFragment.IDashboardListener, ContactFragment.IContactListener,
         CharacterFragment.ICreateCharacterListener, CalculatorFragment.ICalculatorListener {
+
 
     //FirebaseAuth object variable
     FirebaseAuth mAuth;
@@ -45,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
                     .commit();
         }
     }
+
+
 
     @Override
     public void successfulLogin() {
@@ -117,12 +123,16 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void startAIDungeon() {
-        /*
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, AIDungeonFragment.newInstance(null, null), AI_DUNGEON_KEY)
-                .addToBackStack(null)
-                .commit();
+        /*old code
+        Intent intent = new Intent(this, AiDungeon.class);
+        startActivity(intent);
          */
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://play.aidungeon.io/"));
+        startActivity(intent);
+
     }
 
     @Override

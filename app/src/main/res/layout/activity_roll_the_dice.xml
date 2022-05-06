@@ -11,13 +11,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="418dp"
-        android:layout_height="97dp"
+        android:layout_width="412dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="1dp"
         android:gravity="bottom"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resetTally">
 

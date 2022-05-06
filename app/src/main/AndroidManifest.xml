@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.buildyourownadventure">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuildYourOwnAdventure">
+        <activity
+            android:name=".AiDungeon"
+            android:exported="false"
+            android:label="@string/title_activity_ai_dungeon"
+            android:theme="@style/Theme.BuildYourOwnAdventure.NoActionBar" />
         <activity
             android:name=".CharacterActivity"
             android:exported="false" />
@@ -35,15 +40,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".DndLibraries"/>
-
+        <activity android:name=".DndLibraries" />
         <activity android:name=".BgMusicActivity" />
-        <activity android:name=".GridMapActivity"/>
-        <activity android:name=".MonsterLibrary"/>
-        <activity android:name=".SpellLibrary"/>
-        <activity android:name=".Monster"/>
-        <activity android:name=".Spell"/>
+        <activity android:name=".GridMapActivity" />
+        <activity android:name=".MonsterLibrary" />
+        <activity android:name=".SpellLibrary" />
+        <activity android:name=".Monster" />
+        <activity android:name=".Spell" />
     </application>
 
 </manifest>

@@ -48,6 +48,7 @@ public class LoginFragment extends Fragment {
     Button diceButton;
     Button soundsButton;
     Button librariesButton;
+    Button aiDButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,6 +61,7 @@ public class LoginFragment extends Fragment {
         passwordValue = view.findViewById(R.id.passwordValue);
         loginButton = view.findViewById(R.id.loginButton);
         startRegisterButton = view.findViewById(R.id.startRegisterButton);
+        aiDButton = view.findViewById(R.id.aiDungeonButton);
 
         faqButton = view.findViewById(R.id.faqButton);
         contactButton = view.findViewById(R.id.contactButton);
@@ -120,6 +122,10 @@ public class LoginFragment extends Fragment {
 
         librariesButton.setOnClickListener(viewLibraries -> loginListener.startLibraries());
 
+        aiDButton.setOnClickListener(viewLibraries -> loginListener.startAIDungeon());
+
+
+
         return view;
     }
 
@@ -137,6 +143,7 @@ public class LoginFragment extends Fragment {
     }
 
     public interface ILoginListener{
+        void startAIDungeon();
         void successfulLogin();
         void unsuccessfulLogin(String errorMessage);
         void startRegister();
