@@ -81,10 +81,12 @@ public class CharacterFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_character, container, false);
 
 
+
         // This determines what is displayed int he list of characters //
         if(c == null){
         }else {
-            character.add(new Character(c.getName(), c.getRace(), c.getCharacterClass()));
+            c.setFace(R.drawable.yoricksquare);
+            character.add(new Character(c.getName(), c.getRace(), c.getCharacterClass(), c.getFace()));
         }
 
 

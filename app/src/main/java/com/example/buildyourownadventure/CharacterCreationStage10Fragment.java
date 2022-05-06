@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -61,6 +62,7 @@ public class CharacterCreationStage10Fragment extends Fragment {
     }
     Button back;
     Button createCharacter;
+    EditText biography;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +71,11 @@ public class CharacterCreationStage10Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_character_creation_stage10, container, false);
         back = view.findViewById(R.id.buttonBackStage10);
         createCharacter = view.findViewById(R.id.buttonCreateStage10);
+        biography = view.findViewById(R.id.editTextTextMultiLine);
+
+
+
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +89,7 @@ public class CharacterCreationStage10Fragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                c.setBio(biography.getText().toString());
                 //FIRE BASE STUFF//
                 //makes fire base instance //
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -95,6 +103,7 @@ public class CharacterCreationStage10Fragment extends Fragment {
                 Map<String, String> character = new HashMap<>();
                 Map<String, String[]> character2 = new HashMap<>();
                 Map<String, Integer> character3 = new HashMap<>();
+                Map<String, Boolean> character4 = new HashMap<>();
 
 
                 character.put("Userid", c.getUserId());
@@ -143,30 +152,30 @@ public class CharacterCreationStage10Fragment extends Fragment {
                 character3.put("platinum", c.getPlatinum());
 
 
-                character3.put("AttributeStrength", c.getAttributeStrength());
-                character3.put("AttributeDexterity", c.getAttributeDexterity());
-                character3.put("AttributeConstitution", c.getAttributeConstitution());
-                character3.put("AttributeIntelligence", c.getAttributeIntelligence());
-                character3.put("AttributeWisdom", c.getAttributeWisdom());
-                character3.put("AttributeCharisma", c.getAttributeCharisma());
-                character3.put("AttributeAcrobatics", c.getAttributeAcrobatics());
-                character3.put("AttributeAnimalHandling", c.getAttributeAnimalHandling());
-                character3.put("AttributeArcana", c.getAttributeArcana());
-                character3.put("AttributeAthletics", c.getAttributeAthletics());
-                character3.put("AttributeDeception", c.getAttributeDeception());
-                character3.put("AttributeHistory", c.getAttributeHistory());
-                character3.put("AttributeInsight", c.getAttributeInsight());
-                character3.put("AttributeIntimidation", c.getAttributeIntimidation());
-                character3.put("AttributeInvestigation", c.getAttributeInvestigation());
-                character3.put("AttributeMedicine", c.getAttributeMedicine());
-                character3.put("AttributeNature", c.getAttributeNature());
-                character3.put("AttributePerception", c.getAttributePerception());
-                character3.put("AttributePerformance", c.getAttributePerformance());
-                character3.put("AttributePersuasion", c.getAttributePersuasion());
-                character3.put("AttributeReligion", c.getAttributeReligion());
-                character3.put("AttributeSleightOfHand", c.getAttributeSleightOfHand());
-                character3.put("AttributeStealth", c.getAttributeStealth());
-                character3.put("AttributeSurvival", c.getAttributeSurvival());
+                character4.put("AttributeStrength", c.getAttributeStrength());
+                character4.put("AttributeDexterity", c.getAttributeDexterity());
+                character4.put("AttributeConstitution", c.getAttributeConstitution());
+                character4.put("AttributeIntelligence", c.getAttributeIntelligence());
+                character4.put("AttributeWisdom", c.getAttributeWisdom());
+                character4.put("AttributeCharisma", c.getAttributeCharisma());
+                character4.put("AttributeAcrobatics", c.getAttributeAcrobatics());
+                character4.put("AttributeAnimalHandling", c.getAttributeAnimalHandling());
+                character4.put("AttributeArcana", c.getAttributeArcana());
+                character4.put("AttributeAthletics", c.getAttributeAthletics());
+                character4.put("AttributeDeception", c.getAttributeDeception());
+                character4.put("AttributeHistory", c.getAttributeHistory());
+                character4.put("AttributeInsight", c.getAttributeInsight());
+                character4.put("AttributeIntimidation", c.getAttributeIntimidation());
+                character4.put("AttributeInvestigation", c.getAttributeInvestigation());
+                character4.put("AttributeMedicine", c.getAttributeMedicine());
+                character4.put("AttributeNature", c.getAttributeNature());
+                character4.put("AttributePerception", c.getAttributePerception());
+                character4.put("AttributePerformance", c.getAttributePerformance());
+                character4.put("AttributePersuasion", c.getAttributePersuasion());
+                character4.put("AttributeReligion", c.getAttributeReligion());
+                character4.put("AttributeSleightOfHand", c.getAttributeSleightOfHand());
+                character4.put("AttributeStealth", c.getAttributeStealth());
+                character4.put("AttributeSurvival", c.getAttributeSurvival());
                 character3.put("failures", c.getFailures());
                 character3.put("successes", c.getSuccesses());
 

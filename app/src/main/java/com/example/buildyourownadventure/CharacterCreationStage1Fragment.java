@@ -145,6 +145,7 @@ public class CharacterCreationStage1Fragment extends Fragment {
         subrace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 newC.setSubRace("Acolyte");
             }
         });

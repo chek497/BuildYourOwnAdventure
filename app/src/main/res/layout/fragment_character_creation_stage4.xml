@@ -314,7 +314,7 @@
         android:layout_marginRight="20dp"
         android:backgroundTint="#EFB644"
         android:text="Next"
-        android:textColor="#292323"/>
+        android:textColor="#292323" />
 
 
 </RelativeLayout>

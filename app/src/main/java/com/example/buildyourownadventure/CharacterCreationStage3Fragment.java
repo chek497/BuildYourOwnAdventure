@@ -154,7 +154,11 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 y = random.nextInt(6);
                 z = random.nextInt(6);
 
+                strength1.setText(findTotal(x,y,z));
                 strength2.setText(findTotal(x,y,z));
+
+                c.setStrength(Integer.parseInt(strength2.getText().toString()));
+                c.setASMStrength(Integer.parseInt(strength1.getText().toString()));
 
             }
         });
@@ -167,7 +171,13 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 y = random.nextInt(6);
                 z = random.nextInt(6);
 
+
+                Dexterity1.setText(findTotal(x,y,z));
                 Dexterity2.setText(findTotal(x,y,z));
+
+                c.setDexterity(Integer.parseInt(Dexterity2.getText().toString()));
+                c.setASMDexterity(Integer.parseInt(Dexterity1.getText().toString()));
+
 
             }
         });
@@ -180,12 +190,13 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 y = random.nextInt(6);
                 z = random.nextInt(6);
 
-                Constitution2.setText(findTotal(x,y,z));
-
                 //Need Constitution to determine Current health //
                 Constitution1.setText(findTotal(x,y,z));
+                Constitution2.setText(findTotal(x,y,z));
 
-                c.setASMConstitution(Integer.parseInt(Constitution2.getText().toString())-10);
+                c.setConstitution(Integer.parseInt(Constitution2.getText().toString()));
+                c.setASMConstitution(Integer.parseInt(Constitution1.getText().toString())-10);
+
 
             }
         });
@@ -198,8 +209,11 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 y = random.nextInt(6);
                 z = random.nextInt(6);
 
+                Intelligence1.setText(findTotal(x,y,z));
                 Intelligence2.setText(findTotal(x,y,z));
 
+                c.setIntelligence(Integer.parseInt(Intelligence2.getText().toString()));
+                c.setASMIntelligence(Integer.parseInt(Intelligence1.getText().toString())-10);
             }
         });
 
@@ -211,8 +225,11 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 y = random.nextInt(6);
                 z = random.nextInt(6);
 
+                Wisdom1.setText(findTotal(x,y,z));
                 Wisdom2.setText(findTotal(x,y,z));
 
+                c.setWisdom(Integer.parseInt(Wisdom2.getText().toString()));
+                c.setASMWisdom(Integer.parseInt(Wisdom1.getText().toString())-10);
             }
         });
 
@@ -224,8 +241,11 @@ public class CharacterCreationStage3Fragment extends Fragment {
                 y = random.nextInt(6);
                 z = random.nextInt(6);
 
+                Charisma1.setText(findTotal(x,y,z));
                 Charisma2.setText(findTotal(x,y,z));
 
+                c.setCharisma(Integer.parseInt(Charisma2.getText().toString()));
+                c.setASMCharisma(Integer.parseInt(Charisma1.getText().toString())-10);
             }
         });
 

@@ -90,6 +90,8 @@ public class CharacterCreationStage6Fragment extends Fragment {
         armorClass = view.findViewById(R.id.textView46);
         initiative = view.findViewById(R.id.textView48);
 
+        //initiative.setText(c.getASMDexterity());
+
         requestQueue = Volley.newRequestQueue(view.getContext());
         url = "https://www.dnd5eapi.co/api/backgrounds/acolyte";
 

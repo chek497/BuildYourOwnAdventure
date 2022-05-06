@@ -105,6 +105,47 @@ public class CharacterCreationStage4Fragment extends Fragment {
         HD = view.findViewById(R.id.textView40);
         CHP = view.findViewById(R.id.textView42);
 
+        // Hit dice plus proficiency bonus //
+        CHP.setText("10");
+
+        // Saving throws based on character Class//
+        if(c.getCharacterClass().contains("Barbarian") || c.getCharacterClass().contains("Fighter")){
+            switchS.setChecked(true);
+            c.setAttributeStrength(true);
+            switchC.setChecked(true);
+            c.setAttributeConstitution(true);
+        }else if (c.getCharacterClass().contains("Bard")){
+            switchD.setChecked(true);
+            c.setAttributeDexterity(true);
+            switchCh.setChecked(true);
+            c.setAttributeCharisma(true);
+        }else if(c.getCharacterClass().contains("Cleric") || c.getCharacterClass().contains("Paladin") || c.getCharacterClass().contains("Warlock")){
+            switchW.setChecked(true);
+            c.setAttributeWisdom(true);
+            switchCh.setChecked(true);
+            c.setAttributeCharisma(true);
+        }else if(c.getCharacterClass().contains("Druid") || c.getCharacterClass().contains("Wizard")){
+            switchI.setChecked(true);
+            c.setAttributeIntelligence(true);
+            switchW.setChecked(true);
+            c.setAttributeWisdom(true);
+        }else if(c.getCharacterClass().contains("Monk") || c.getCharacterClass().contains("Ranger")){
+            switchS.setChecked(true);
+            c.setAttributeStrength(true);
+            switchD.setChecked(true);
+            c.setAttributeDexterity(true);
+        }else if (c.getCharacterClass().contains("Rogue")){
+            switchD.setChecked(true);
+            c.setAttributeDexterity(true);
+            switchI.setChecked(true);
+            c.setAttributeIntelligence(true);
+        }else if(c.getCharacterClass().contains("Sorcerer")){
+            switchC.setChecked(true);
+            c.setAttributeConstitution(true);
+            switchCh.setChecked(true);
+            c.setAttributeCharisma(true);
+        }
+
         // Using dnd api, This return ability-score info, but i dont knownhow to parse the info to get the character information i want//
 
         queue = Volley.newRequestQueue(view.getContext());

@@ -1,13 +1,29 @@
 package com.example.buildyourownadventure;
 
 import android.media.Image;
+import android.widget.ImageView;
 
 import java.io.Serializable;
 
 public class Character implements Serializable {
 
 
-    Image face;
+    int face;
+
+    public int getFace() {
+        return face;
+    }
+
+    public void setFace(int face) {
+        this.face = face;
+    }
+
+    public Character(String race, String name, String characterClass, int face) {
+        this.face = face;
+        this.name = name;
+        this.characterClass = characterClass;
+        this.race = race;
+    }
 
     String userId;
 
@@ -77,31 +93,31 @@ public class Character implements Serializable {
     int platinum;
 
     /*SavingThrows And Skills*/
-    int AttributeStrength;
-    int AttributeDexterity;
-    int AttributeConstitution;
-    int AttributeIntelligence;
-    int AttributeWisdom;
-    int AttributeCharisma;
+    Boolean AttributeStrength;
+    Boolean AttributeDexterity;
+    Boolean AttributeConstitution;
+    Boolean AttributeIntelligence;
+    Boolean AttributeWisdom;
+    Boolean AttributeCharisma;
 
-    int AttributeAcrobatics;
-    int AttributeAnimalHandling;
-    int AttributeArcana;
-    int AttributeAthletics;
-    int AttributeDeception;
-    int AttributeHistory;
-    int AttributeInsight;
-    int AttributeIntimidation;
-    int AttributeInvestigation;
-    int AttributeMedicine;
-    int AttributeNature;
-    int AttributePerception;
-    int AttributePerformance;
-    int AttributePersuasion;
-    int AttributeReligion;
-    int AttributeSleightOfHand;
-    int AttributeStealth;
-    int AttributeSurvival;
+    Boolean AttributeAcrobatics;
+    Boolean AttributeAnimalHandling;
+    Boolean AttributeArcana;
+    Boolean AttributeAthletics;
+    Boolean AttributeDeception;
+    Boolean AttributeHistory;
+    Boolean AttributeInsight;
+    Boolean AttributeIntimidation;
+    Boolean AttributeInvestigation;
+    Boolean AttributeMedicine;
+    Boolean AttributeNature;
+    Boolean AttributePerception;
+    Boolean AttributePerformance;
+    Boolean AttributePersuasion;
+    Boolean AttributeReligion;
+    Boolean AttributeSleightOfHand;
+    Boolean AttributeStealth;
+    Boolean AttributeSurvival;
 
 
     int failures;   /*Death*/
@@ -460,195 +476,203 @@ public class Character implements Serializable {
         this.platinum = platinum;
     }
 
-    public int getAttributeStrength() {
+    public Boolean getAttributeStrength() {
         return AttributeStrength;
     }
 
-    public void setAttributeStrength(int attributeStrength) {
+    public void setAttributeStrength(Boolean attributeStrength) {
         AttributeStrength = attributeStrength;
     }
 
-    public int getAttributeDexterity() {
+    public String[][][] getToolProficiencies() {
+        return toolProficiencies;
+    }
+
+    public void setToolProficiencies(String[][][] toolProficiencies) {
+        this.toolProficiencies = toolProficiencies;
+    }
+
+    public Boolean getAttributeDexterity() {
         return AttributeDexterity;
     }
 
-    public void setAttributeDexterity(int attributeDexterity) {
+    public void setAttributeDexterity(Boolean attributeDexterity) {
         AttributeDexterity = attributeDexterity;
     }
 
-    public int getAttributeConstitution() {
+    public Boolean getAttributeConstitution() {
         return AttributeConstitution;
     }
 
-    public void setAttributeConstitution(int attributeConstitution) {
+    public void setAttributeConstitution(Boolean attributeConstitution) {
         AttributeConstitution = attributeConstitution;
     }
 
-    public int getAttributeIntelligence() {
+    public Boolean getAttributeIntelligence() {
         return AttributeIntelligence;
     }
 
-    public void setAttributeIntelligence(int attributeIntelligence) {
+    public void setAttributeIntelligence(Boolean attributeIntelligence) {
         AttributeIntelligence = attributeIntelligence;
     }
 
-    public int getAttributeWisdom() {
+    public Boolean getAttributeWisdom() {
         return AttributeWisdom;
     }
 
-    public void setAttributeWisdom(int attributeWisdom) {
+    public void setAttributeWisdom(Boolean attributeWisdom) {
         AttributeWisdom = attributeWisdom;
     }
 
-    public int getAttributeCharisma() {
+    public Boolean getAttributeCharisma() {
         return AttributeCharisma;
     }
 
-    public void setAttributeCharisma(int attributeCharisma) {
+    public void setAttributeCharisma(Boolean attributeCharisma) {
         AttributeCharisma = attributeCharisma;
     }
 
-    public int getAttributeAcrobatics() {
+    public Boolean getAttributeAcrobatics() {
         return AttributeAcrobatics;
     }
 
-    public void setAttributeAcrobatics(int attributeAcrobatics) {
+    public void setAttributeAcrobatics(Boolean attributeAcrobatics) {
         AttributeAcrobatics = attributeAcrobatics;
     }
 
-    public int getAttributeAnimalHandling() {
+    public Boolean getAttributeAnimalHandling() {
         return AttributeAnimalHandling;
     }
 
-    public void setAttributeAnimalHandling(int attributeAnimalHandling) {
+    public void setAttributeAnimalHandling(Boolean attributeAnimalHandling) {
         AttributeAnimalHandling = attributeAnimalHandling;
     }
 
-    public int getAttributeArcana() {
+    public Boolean getAttributeArcana() {
         return AttributeArcana;
     }
 
-    public void setAttributeArcana(int attributeArcana) {
+    public void setAttributeArcana(Boolean attributeArcana) {
         AttributeArcana = attributeArcana;
     }
 
-    public int getAttributeAthletics() {
+    public Boolean getAttributeAthletics() {
         return AttributeAthletics;
     }
 
-    public void setAttributeAthletics(int attributeAthletics) {
+    public void setAttributeAthletics(Boolean attributeAthletics) {
         AttributeAthletics = attributeAthletics;
     }
 
-    public int getAttributeDeception() {
+    public Boolean getAttributeDeception() {
         return AttributeDeception;
     }
 
-    public void setAttributeDeception(int attributeDeception) {
+    public void setAttributeDeception(Boolean attributeDeception) {
         AttributeDeception = attributeDeception;
     }
 
-    public int getAttributeHistory() {
+    public Boolean getAttributeHistory() {
         return AttributeHistory;
     }
 
-    public void setAttributeHistory(int attributeHistory) {
+    public void setAttributeHistory(Boolean attributeHistory) {
         AttributeHistory = attributeHistory;
     }
 
-    public int getAttributeInsight() {
+    public Boolean getAttributeInsight() {
         return AttributeInsight;
     }
 
-    public void setAttributeInsight(int attributeInsight) {
+    public void setAttributeInsight(Boolean attributeInsight) {
         AttributeInsight = attributeInsight;
     }
 
-    public int getAttributeIntimidation() {
+    public Boolean getAttributeIntimidation() {
         return AttributeIntimidation;
     }
 
-    public void setAttributeIntimidation(int attributeIntimidation) {
+    public void setAttributeIntimidation(Boolean attributeIntimidation) {
         AttributeIntimidation = attributeIntimidation;
     }
 
-    public int getAttributeInvestigation() {
+    public Boolean getAttributeInvestigation() {
         return AttributeInvestigation;
     }
 
-    public void setAttributeInvestigation(int attributeInvestigation) {
+    public void setAttributeInvestigation(Boolean attributeInvestigation) {
         AttributeInvestigation = attributeInvestigation;
     }
 
-    public int getAttributeMedicine() {
+    public Boolean getAttributeMedicine() {
         return AttributeMedicine;
     }
 
-    public void setAttributeMedicine(int attributeMedicine) {
+    public void setAttributeMedicine(Boolean attributeMedicine) {
         AttributeMedicine = attributeMedicine;
     }
 
-    public int getAttributeNature() {
+    public Boolean getAttributeNature() {
         return AttributeNature;
     }
 
-    public void setAttributeNature(int attributeNature) {
+    public void setAttributeNature(Boolean attributeNature) {
         AttributeNature = attributeNature;
     }
 
-    public int getAttributePerception() {
+    public Boolean getAttributePerception() {
         return AttributePerception;
     }
 
-    public void setAttributePerception(int attributePerception) {
+    public void setAttributePerception(Boolean attributePerception) {
         AttributePerception = attributePerception;
     }
 
-    public int getAttributePerformance() {
+    public Boolean getAttributePerformance() {
         return AttributePerformance;
     }
 
-    public void setAttributePerformance(int attributePerformance) {
+    public void setAttributePerformance(Boolean attributePerformance) {
         AttributePerformance = attributePerformance;
     }
 
-    public int getAttributePersuasion() {
+    public Boolean getAttributePersuasion() {
         return AttributePersuasion;
     }
 
-    public void setAttributePersuasion(int attributePersuasion) {
+    public void setAttributePersuasion(Boolean attributePersuasion) {
         AttributePersuasion = attributePersuasion;
     }
 
-    public int getAttributeReligion() {
+    public Boolean getAttributeReligion() {
         return AttributeReligion;
     }
 
-    public void setAttributeReligion(int attributeReligion) {
+    public void setAttributeReligion(Boolean attributeReligion) {
         AttributeReligion = attributeReligion;
     }
 
-    public int getAttributeSleightOfHand() {
+    public Boolean getAttributeSleightOfHand() {
         return AttributeSleightOfHand;
     }
 
-    public void setAttributeSleightOfHand(int attributeSleightOfHand) {
+    public void setAttributeSleightOfHand(Boolean attributeSleightOfHand) {
         AttributeSleightOfHand = attributeSleightOfHand;
     }
 
-    public int getAttributeStealth() {
+    public Boolean getAttributeStealth() {
         return AttributeStealth;
     }
 
-    public void setAttributeStealth(int attributeStealth) {
+    public void setAttributeStealth(Boolean attributeStealth) {
         AttributeStealth = attributeStealth;
     }
 
-    public int getAttributeSurvival() {
+    public Boolean getAttributeSurvival() {
         return AttributeSurvival;
     }
 
-    public void setAttributeSurvival(int attributeSurvival) {
+    public void setAttributeSurvival(Boolean attributeSurvival) {
         AttributeSurvival = attributeSurvival;
     }
 
@@ -668,19 +692,16 @@ public class Character implements Serializable {
         this.successes = successes;
     }
 
-    public Image getFace() {
-        return face;
-    }
 
-    public void setFace(Image face) {
-        this.face = face;
-    }
 
     public Character(String name, String characterClass, String race) {
         this.name = name;
         this.characterClass = characterClass;
         this.race = race;
     }
+
+
+
     public Character() {
 
     }

@@ -23,14 +23,14 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Charac
         private TextView name;
         private TextView Class;
         private TextView race;
-       //public ImageView face;
+        public ImageView face;
 
         public CharacterRecyclerView(final View view){
             super(view);
             name = view.findViewById(R.id.textView17);
             Class = view.findViewById(R.id.textView18);
             race = view.findViewById(R.id.textView20);
-            //face = view.findViewById(R.id.imageView3);
+            face = view.findViewById(R.id.imageView3);
         }
     }
 
@@ -46,12 +46,12 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.Charac
         String name = character.get(position).getName();
         String Class = character.get(position).getCharacterClass();
         String race = character.get(position).getRace();
-        //Image face = character.get(position).getFace();
+        int face = character.get(position).getFace();
 
         holder.name.setText(name);
         holder.Class.setText(Class);
         holder.race.setText(race);
-        //holder.face.setImageResource(position);
+        holder.face.setImageResource(face);
     }
 
     @Override
