@@ -29,15 +29,21 @@
         <activity android:name=".DictionaryActivity" />
         <activity android:name=".PlayerActivity" />
         <activity android:name=".MainActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+        <activity android:name=".DndLibraries"/>
 
         <activity android:name=".BgMusicActivity" />
         <activity android:name=".GridMapActivity"/>
+        <activity android:name=".MonsterLibrary"/>
+        <activity android:name=".SpellLibrary"/>
+        <activity android:name=".Monster"/>
+        <activity android:name=".Spell"/>
     </application>
 
 </manifest>

@@ -53,7 +53,7 @@ public class SetupActivity extends AppCompatActivity {
                 text.setTextColor(Color.WHITE);
                 text2.setTextColor(Color.WHITE);
                 break;
-            //Send user back to main activity when they press create game
+            //Send user border.xml to main activity when they press create game
             case R.id.creategame:
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);

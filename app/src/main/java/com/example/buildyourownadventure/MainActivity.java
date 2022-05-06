@@ -169,12 +169,8 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.ILo
 
     @Override
     public void startLibraries() {
-        /*
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.rootView, LibrariesFragment.newInstance(null, null), LIBRARIES_KEY)
-                .addToBackStack(null)
-                .commit();
-         */
+        Intent intentLibraries = new Intent(MainActivity.this, DndLibraries.class);
+        startActivity(intentLibraries);
     }
 
     @Override

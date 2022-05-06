@@ -86,7 +86,7 @@ public class ContactFragment extends Fragment {
                         .add(newResponse)
                         .addOnSuccessListener(documentReference -> Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId()))
                         .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
-                //Send user back to dashboard fragment
+                //Send user border.xml to dashboard fragment
                 contactListener.endContact();
             }
         });
