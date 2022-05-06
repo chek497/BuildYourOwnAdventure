@@ -38,4 +38,5 @@
     <string name="diePlusView">+</string>
     <string name="a_d4_dice">a d4 dice</string>
     <string name="title_activity_character">CharacterActivity</string>
+    <string name="title_activity_ai_dungeon">AiDungeon</string>
 </resources>
