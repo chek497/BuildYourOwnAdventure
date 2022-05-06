@@ -148,6 +148,10 @@ public class DashboardFragment extends Fragment {
                 dashboardListener.startTutorial();
             }
         });
+        librariesButtonDashboard.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){dashboardListener.startLibraries();}
+        });
 
         logoutButtonDashboard.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,12 +2,15 @@ package com.example.buildyourownadventure;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
@@ -24,6 +27,7 @@ import java.util.ArrayList;
 public class SpellLibrary extends AppCompatActivity {
     private static final String TAG = "Request";
     ListView listView;
+    ArrayAdapter arrayAdapter;
     private final OkHttpClient client = new OkHttpClient();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +67,7 @@ public class SpellLibrary extends AppCompatActivity {
 
                                 // Stuff that updates the UI
 
-                                ArrayAdapter arrayAdapter = new ArrayAdapter(
+                                arrayAdapter = new ArrayAdapter(
                                         SpellLibrary.this,
                                         R.layout.list_items,
                                         android.R.id.text1, arrayList);
@@ -89,5 +93,30 @@ public class SpellLibrary extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Type here to search");
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                arrayAdapter.getFilter().filter(newText);
+
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 }
