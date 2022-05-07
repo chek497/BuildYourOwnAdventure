@@ -112,7 +112,7 @@ public class LoginFragment extends Fragment {
 
         contactButton.setOnClickListener(viewContact -> loginListener.startContact());
 
-        settingsButton.setOnClickListener(viewSettings -> loginListener.startSettings());
+        settingsButton.setOnClickListener(viewSettings -> loginListener.startGridMap());
 
         calcButton.setOnClickListener(viewCalculator -> loginListener.startCalculator());
 
@@ -148,7 +148,7 @@ public class LoginFragment extends Fragment {
         void unsuccessfulLogin(String errorMessage);
         void startRegister();
         void startFAQ();
-        void startSettings();
+        void startGridMap();
         void startContact();
         void startDice();
         void startCalculator();

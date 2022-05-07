@@ -171,7 +171,7 @@ public class DashboardFragment extends Fragment {
         settingsButtonDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dashboardListener.startSettings();
+                dashboardListener.startGridMap();
             }
         });
 
